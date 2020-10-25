@@ -11,7 +11,6 @@
 //
 
 import SwiftUI
-import PhoneNumberKit
 
 // MARK: - Usage:
 public struct iPhoneNumberTextField: UIViewRepresentable {
@@ -37,34 +36,37 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
     }
 
     /// The maximum number of accepting digits.
-    private let maxDigits: Int?
+    internal var maxDigits: Int?
 
     /// The font of the textField.
     internal var font: UIFont?
 
     /// The mode of the clear button.
-    private let clearButtonMode: UITextField.ViewMode
+    internal var clearButtonMode: UITextField.ViewMode = .never
 
     /// The text of the placeholder, setting it `nil` will show default number example as the placeholder.
     private let placeholder: String?
 
     /// Show the country flag
-    private let showFlag: Bool
+    internal var showFlag: Bool = false
 
     /// Show a full list of countries on tap of the  flag.
-    private let selectableFlag: Bool
+    internal var selectableFlag: Bool = false
 
     /// Automatically fill the country code.
     private let autofillPrefix: Bool
 
     /// The text color of the textField.
     internal var textColor: UIColor?
+    
+    /// The color of the text field's cursor and highlighting.
+    internal var accentColor: UIColor?
 
     /// The number part of the placeholder color.
-    internal var numberPlaceholderColor: UIColor
+    internal var numberPlaceholderColor: UIColor?
 
     /// The country code part of the placeholder color.
-    internal var countryCodePlaceholderColor: UIColor
+    internal var countryCodePlaceholderColor: UIColor?
 
     /// The style of the `UITextField`.
     internal var borderStyle: UITextField.BorderStyle = .none
@@ -80,39 +82,47 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
 
     /// The textField invokes this closure when it resign the first responder.
     internal var onEndEditingHandler = { (view: PhoneNumberTextField) in }
+    
+    internal var onClearHandler = { (view: PhoneNumberTextField) in }
 
     /// Access all properties of the original UIView.
     public var configuration = { (view: PhoneNumberTextField) in }
+    
+    /// The alignment of the textField.
+    @Environment(\.layoutDirection) internal var layoutDirection: LayoutDirection
+    internal var textAlignment: NSTextAlignment?
+    
+    /// The content type of the textField.
+    internal var contentType: UITextContentType?
+    
+    /// Whether the textField clears on begin editing.
+    internal var clearsOnBeginEditing = false
+    
+    /// Whether the textField clears on insertion.
+    internal var clearsOnInsertion = false
+    
+    /// Whether the user can interact with the textField
+    internal var isUserInteractionEnabled = true
 
     public init(_ placeholder: String? = nil,
                 text: Binding<String>,
                 isEditing: Binding<Bool>? = nil,
-                maxDigits: Int? = nil,
-                clearButtonMode: UITextField.ViewMode = .whileEditing,
-                showFlag: Bool = true,
-                selectableFlag: Bool = true,
-                showPrefix: Bool = false,
-                numberPlaceholderColor: UIColor = .gray,
-                countryCodePlaceholderColor: UIColor = .gray,
                 configuration: @escaping (UIViewType) -> () = { _ in } ) {
 
         self.placeholder = placeholder
         self.externalIsFirstResponder = isEditing
         self._text = text
-        self.maxDigits = maxDigits
-        self.clearButtonMode = clearButtonMode
-        self.showFlag = showFlag
-        self.selectableFlag = selectableFlag
-        self.autofillPrefix = showFlag
-        self.numberPlaceholderColor = numberPlaceholderColor
-        self.countryCodePlaceholderColor = countryCodePlaceholderColor
         self.configuration = configuration
+        self.autofillPrefix = showFlag
     }
 
     public func makeUIView(context: UIViewRepresentableContext<Self>) -> PhoneNumberTextField {
         let uiView = UIViewType()
+        
         uiView.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        uiView.addTarget(context.coordinator, action: #selector(Coordinator.textViewDidChange), for: .editingChanged)
+        uiView.addTarget(context.coordinator,
+                         action: #selector(Coordinator.textViewDidChange),
+                         for: .editingChanged)
         uiView.delegate = context.coordinator
         uiView.withExamplePlaceholder = placeholder == nil
         
@@ -121,6 +131,7 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
 
     public func updateUIView(_ uiView: PhoneNumberTextField, context: UIViewRepresentableContext<Self>) {
         configuration(uiView)
+        
         uiView.text = text
         uiView.font = font
         uiView.maxDigits = maxDigits
@@ -132,12 +143,26 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
         uiView.withDefaultPickerUI = selectableFlag
         uiView.withPrefix = autofillPrefix
 
-        uiView.numberPlaceholderColor = numberPlaceholderColor
-        uiView.countryCodePlaceholderColor = countryCodePlaceholderColor
+        if let numberPlaceholderColor = numberPlaceholderColor {
+            uiView.numberPlaceholderColor = numberPlaceholderColor
+        }
+        if let countryCodePlaceholderColor = countryCodePlaceholderColor {
+            uiView.countryCodePlaceholderColor = countryCodePlaceholderColor
+        }
+        if let contentType = contentType {
+            uiView.textContentType = contentType
+        }
+        if let accentColor = accentColor {
+            uiView.tintColor = accentColor
+        }
+        if let textAlignment = textAlignment {
+            uiView.textAlignment = textAlignment
+        }
 
-        switch isFirstResponder {
-        case true: uiView.becomeFirstResponder()
-        case false: uiView.resignFirstResponder()
+        if isFirstResponder {
+            uiView.becomeFirstResponder()
+        } else {
+            uiView.resignFirstResponder()
         }
     }
 
@@ -146,7 +171,8 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
                     isFirstResponder: externalIsFirstResponder ?? $internalIsFirstResponder,
                     onBeginEditing: onBeginEditingHandler,
                     onEditingChange: onEditingChangeHandler,
-                    onEndEditing: onEndEditingHandler)
+                    onEndEditing: onEndEditingHandler,
+                    onClear: onClearHandler)
     }
 
     public class Coordinator: NSObject, UITextFieldDelegate {
@@ -155,13 +181,15 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
             isFirstResponder: Binding<Bool>,
             onBeginEditing: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in },
             onEditingChange: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in },
-            onEndEditing: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in }
+            onEndEditing: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in },
+            onClear: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in }
         ) {
 
             self.text = text
             self.isFirstResponder = isFirstResponder
             self.onBeginEditing = onBeginEditing
             self.onEndEditing = onEndEditing
+            self.onClear = onClear
         }
 
         var text: Binding<String>
@@ -171,6 +199,7 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
         var onEditingChange = { (view: PhoneNumberTextField) in }
         var onPhoneNumberChange = { (phoneNumber: PhoneNumber?) in }
         var onEndEditing = { (view: PhoneNumberTextField) in }
+        var onClear = { (view: PhoneNumberTextField) in }
 
         @objc public func textViewDidChange(_ textField: UITextField) {
             guard let textField = textField as? PhoneNumberTextField else { return assertionFailure("Undefined state") }
@@ -187,6 +216,12 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
         public func textFieldDidEndEditing(_ textField: UITextField) {
             self.isFirstResponder.wrappedValue = false
             self.onEndEditing(textField as! PhoneNumberTextField)
+        }
+        
+        public func textFieldShouldClear(_ textField: UITextField) -> Bool {
+            self.onClear(textField as! PhoneNumberTextField)
+            text.wrappedValue = ""
+            return false
         }
     }
 }
