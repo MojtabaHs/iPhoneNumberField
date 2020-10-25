@@ -13,6 +13,7 @@
 import SwiftUI
 
 public extension iPhoneNumberTextField {
+    
     /// Modifies the text field’s **font** from a `UIFont` object. 🔠🔡
     /// - Parameter font: The desired font 🅰️🆗
     /// - Returns: An updated text field using the desired font 💬
@@ -43,6 +44,22 @@ public extension iPhoneNumberTextField {
         if let accentColor = accentColor {
             view.accentColor = UIColor.from(color: accentColor)
         }
+        return view
+    }
+    
+    func placeholderColor(_ color: Color) -> Self {
+        self
+            .numberPlaceholderColor(color)
+            .countryCodePlaceholderColor(color)
+    }
+    func numberPlaceholderColor(_ color: Color) -> Self {
+        var view = self
+        view.numberPlaceholderColor = UIColor.from(color: color)
+        return view
+    }
+    func countryCodePlaceholderColor(_ color: Color) -> Self {
+        var view = self
+        view.countryCodePlaceholderColor = UIColor.from(color: color)
         return view
     }
     
@@ -165,21 +182,6 @@ public extension iPhoneNumberTextField {
     func textFieldStyle(_ style: UITextField.BorderStyle) -> Self {
         var view = self
         view.borderStyle = style
-        return view
-    }
-    func placeholderColor(_ color: Color) -> Self {
-        self
-            .numberPlaceholderColor(color)
-            .countryCodePlaceholderColor(color)
-    }
-    func numberPlaceholderColor(_ color: Color) -> Self {
-        var view = self
-        view.numberPlaceholderColor = UIColor.from(color: color)
-        return view
-    }
-    func countryCodePlaceholderColor(_ color: Color) -> Self {
-        var view = self
-        view.countryCodePlaceholderColor = UIColor.from(color: color)
         return view
     }
     func maximumDigits(_ max: Int?) -> Self {
