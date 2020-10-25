@@ -69,13 +69,16 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
     /// The style of the `UITextField`.
     internal var borderStyle: UITextField.BorderStyle = .none
 
-    /// The textField invokes this closure when it when it became the first responder.
+    /// The textField invokes this closure when it became the first responder.
     internal var onBeginEditingHandler = { (view: PhoneNumberTextField) in }
 
-    /// The textField invokes this closure when it when it changes.
+    /// The textField invokes this closure when it changes.
     internal var onEditingChangeHandler = { (view: PhoneNumberTextField) in }
 
-    /// The textField invokes this closure when it when it resign the first responder.
+    /// The textField invokes this closure when the containing number changes.
+    internal var onPhoneNumberChangeHandler = { (phoneNumber: PhoneNumber?) in }
+
+    /// The textField invokes this closure when it resign the first responder.
     internal var onEndEditingHandler = { (view: PhoneNumberTextField) in }
 
     /// Access all properties of the original UIView.
@@ -166,11 +169,14 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
 
         var onBeginEditing = { (view: PhoneNumberTextField) in }
         var onEditingChange = { (view: PhoneNumberTextField) in }
+        var onPhoneNumberChange = { (phoneNumber: PhoneNumber?) in }
         var onEndEditing = { (view: PhoneNumberTextField) in }
 
         @objc public func textViewDidChange(_ textField: UITextField) {
+            guard let textField = textField as? PhoneNumberTextField else { return assertionFailure("Undefined state") }
             self.text.wrappedValue = textField.text ?? ""
-            self.onEditingChange(textField as! PhoneNumberTextField)
+            self.onEditingChange(textField)
+            self.onPhoneNumberChange(textField.phoneNumber)
         }
 
         public func textFieldDidBeginEditing(_ textField: UITextField) {
