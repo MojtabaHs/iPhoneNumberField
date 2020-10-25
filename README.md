@@ -2,10 +2,13 @@
 
 Elegant SwiftUI phone number textField.
 
+[![Demo][1]][1]
+
 ##  Features
 
 | |Features |
 --------------------------|------------------------------------------------------------
+🎨 | Extreamly customizable
 :phone: | Validate, normalize and extract the elements of any phone number string.
 :checkered_flag: | Fast. 1000 parses -> ~0.4 seconds.
 :books: | Best-in-class metadata from Google's libPhoneNumber project.
@@ -64,3 +67,6 @@ Elegant SwiftUI phone number textField.
 `.countryCodePlaceholderColor`
 
 `.numberPlaceholderColor`
+
+
+  [1]: https://i.stack.imgur.com/5Jvig.gif
