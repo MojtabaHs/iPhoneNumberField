@@ -103,7 +103,7 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
         self.clearButtonMode = clearButtonMode
         self.showFlag = showFlag
         self.selectableFlag = selectableFlag
-        self.autofillPrefix = showFlag
+        self.autofillPrefix = showPrefix
         self.numberPlaceholderColor = numberPlaceholderColor
         self.countryCodePlaceholderColor = countryCodePlaceholderColor
         self.configuration = configuration
