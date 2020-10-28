@@ -20,7 +20,7 @@ public extension iPhoneNumberTextField {
     /// - Returns: An updated text field using the desired font 💬
     /// - Warning: ⚠️ Accepts a `UIFont` object rather than SwiftUI `Font` ⚠️
     /// - SeeAlso: [`UIFont`](https://developer.apple.com/documentation/uikit/uifont)
-    func fontFromUIFont(_ font: UIFont?) -> Self {
+    func font(_ font: UIFont?) -> Self {
         var view = self
         view.font = font
         return view
@@ -29,39 +29,158 @@ public extension iPhoneNumberTextField {
     /// Modifies the **text color** 🎨 of the text field.
     /// - Parameter color: The desired text color 🌈
     /// - Returns: An updated text field using the desired text color 🚦
+    @available(iOS 14, *)
     func foregroundColor(_ color: Color?) -> Self {
-        var view = self
         if let color = color {
-            view.textColor = UIColor.from(color: color)
+            return foregroundColor(UIColor(color))
+        } else {
+            return nilForegroundColor()
         }
-        return view
+    }
+    /// Modifies the **text color** 🎨 of the text field from a `CGColor` obect.
+    /// - Parameter color: The desired text color 🌈
+    /// - Returns: An updated text field using the desired text color 🚦
+    /// - Warning: ⚠️ Accepts a `CGColor` object rather than SwiftUI `Color` ⚠️
+    /// - SeeAlso: [`CGColor`](https://developer.apple.com/documentation/coregraphics/cgcolor)
+    func foregroundColor(_ color: CGColor?) -> Self {
+        if let color = color {
+            return foregroundColor(UIColor(cgColor: color))
+        } else {
+            return nilForegroundColor()
+        }
     }
     
-    /// Modifies the **cursor color** 🌈 of the text field 🖱 💬
-    /// - Parameter accentColor: The cursor color 🎨
-    /// - Returns: A phone number text field with updated cursor color 🚥🖍
-    func accentColor(_ accentColor: Color?) -> Self {
+    /// Modifies the **text color** 🎨 of the text field from a `UIColor` obect.
+    /// - Parameter color: The desired text color 🌈
+    /// - Returns: An updated text field using the desired text color 🚦
+    /// - Warning: ⚠️ Accepts a `UIColor` object rather than SwiftUI `Color` ⚠️
+    /// - SeeAlso: [`UIColor`](https://developer.apple.com/documentation/uikit/uicolor)
+    func foregroundColor(_ color: UIColor?) -> Self {
         var view = self
-        if let accentColor = accentColor {
-            view.accentColor = UIColor.from(color: accentColor)
-        }
+        view.textColor = color
+        return view
+    }
+
+    private func nilForegroundColor() -> Self {
+        var view = self
+        view.textColor = nil
         return view
     }
     
-    func placeholderColor(_ color: Color) -> Self {
+    /// Modifies the **placeholder color** 🌈 of the text field.
+    /// - Parameter color: The placeholder color. 🎨
+    /// - Returns: A phone number text field with updated pleceholder color. 🚥🖍
+    @available(iOS 14, *)
+    func placeholderColor(_ color: Color?) -> Self {
         self
             .numberPlaceholderColor(color)
             .countryCodePlaceholderColor(color)
     }
-    func numberPlaceholderColor(_ color: Color) -> Self {
+    
+    /// Modifies the **placeholder color** 🌈 of the text field.
+    /// - Parameter color: The placeholder color. 🎨
+    /// - Returns: A phone number text field with updated pleceholder color. 🚥🖍
+    func placeholderColor(_ color: UIColor?) -> Self {
+        self
+            .numberPlaceholderColor(color)
+            .countryCodePlaceholderColor(color)
+    }
+
+    /// Modifies the **placeholder color** 🌈 of the text field.
+    /// - Parameter color: The placeholder color. 🎨
+    /// - Returns: A phone number text field with updated pleceholder color. 🚥🖍
+    func placeholderColor(_ color: CGColor?) -> Self {
+        self
+            .numberPlaceholderColor(color)
+            .countryCodePlaceholderColor(color)
+    }
+    
+    /// Modifies the **number placeholder color** 🌈 of the text field.
+    /// - Parameter color: The placeholder color. 🎨
+    /// - Returns: A phone number text field with updated pleceholder color.
+    @available(iOS 14, *)
+    func numberPlaceholderColor(_ color: Color?) -> Self {
+        if let color = color {
+            return numberPlaceholderColor(UIColor(color))
+        } else {
+            return nilNumberPlaceholderColor()
+        }
+    }
+    
+    /// Modifies the **number placeholder color** 🌈 of the text field.
+    /// - Parameter color: The placeholder color. 🎨
+    /// - Returns: A phone number text field with updated pleceholder color.
+    /// - Warning: ⚠️ Accepts a `UIColor` object rather than SwiftUI `Color` ⚠️
+    /// - SeeAlso: [`UIFont`](https://developer.apple.com/documentation/uikit/uicolor)
+    func numberPlaceholderColor(_ color: UIColor?) -> Self {
         var view = self
-        view.numberPlaceholderColor = UIColor.from(color: color)
+        view.numberPlaceholderColor = color
         return view
     }
-    func countryCodePlaceholderColor(_ color: Color) -> Self {
+    
+    /// Modifies the **number placeholder color** 🌈 of the text field.
+    /// - Parameter color: The placeholder color. 🎨
+    /// - Returns: A phone number text field with updated pleceholder color.
+    /// - Warning: ⚠️ Accepts a `CGColor` object rather than SwiftUI `Color` ⚠️
+    /// - SeeAlso: [`UIFont`](https://developer.apple.com/documentation/coregraphics/cgcolor)
+    func numberPlaceholderColor(_ color: CGColor?) -> Self {
+        if let color = color {
+            return numberPlaceholderColor(UIColor(cgColor: color))
+        } else {
+            return nilNumberPlaceholderColor()
+        }
+    }
+    
+    /// Modifies the **number placeholder color** 🌈 of the text field.
+    /// - Parameter color: The placeholder color 🎨
+    /// - Returns: A phone number text field with updated pleceholder color
+    @available(iOS 14, *)
+    func countryCodePlaceholderColor(_ color: Color?) -> Self {
+        if let color = color {
+            return countryCodePlaceholderColor(UIColor(color))
+        } else {
+            return nilCountryPlaceholderColor()
+        }
+    }
+    
+    /// Modifies the **number placeholder color** 🌈 of the text field.
+    /// - Parameter color: The placeholder color 🎨
+    /// - Returns: A phone number text field with updated pleceholder color
+    /// - Warning: ⚠️ Accepts a `UIColor` object rather than SwiftUI `Color` ⚠️
+    /// - SeeAlso: [`UIFont`](https://developer.apple.com/documentation/uikit/uicolor)
+    func countryCodePlaceholderColor(_ color: UIColor?) -> Self {
         var view = self
-        view.countryCodePlaceholderColor = UIColor.from(color: color)
+        view.countryCodePlaceholderColor = color
         return view
+    }
+    
+    /// Modifies the **number placeholder color** 🌈 of the text field.
+    /// - Parameter color: The placeholder color 🎨
+    /// - Returns: A phone number text field with updated pleceholder color
+    /// - Warning: ⚠️ Accepts a `CGColor` object rather than SwiftUI `Font` ⚠️
+    /// - SeeAlso: [`UIFont`](https://developer.apple.com/documentation/coregraphics/cgcolor)
+    func countryCodePlaceholderColor(_ color: CGColor?) -> Self {
+        if let color = color {
+            return countryCodePlaceholderColor(UIColor(cgColor: color))
+        } else {
+            return nilCountryPlaceholderColor()
+        }
+    }
+    
+    private func nilPlaceholderColor() -> Self {
+        self
+            .nilNumberPlaceholderColor()
+            .nilCountryPlaceholderColor()
+    }
+    private func nilNumberPlaceholderColor() -> Self {
+        var view = self
+        view.numberPlaceholderColor = nil
+        return view
+    }
+    private func nilCountryPlaceholderColor() -> Self {
+        var view = self
+        view.countryCodePlaceholderColor = nil
+        return self
     }
     
     /// Modifies the **text alignment** of a text field. ⬅️ ↔️ ➡️
@@ -108,11 +227,57 @@ public extension iPhoneNumberTextField {
     }
     
     /// Modifies whether and when the text field **clear button** appears on the view. ⭕️ ❌
-    /// - Parameter showsButton: Whether the clear button should be visible
-    /// - Returns: A text field with updated clear button settings
+    /// - Parameter showsButton: Whether the clear button should be visible.
+    /// - Returns: A text field with updated clear button settings.
     func clearButtonMode(_ mode: UITextField.ViewMode) -> Self {
         var view = self
         view.clearButtonMode = mode
+        return view
+    }
+    
+    /// Modifies the style of the text field. ☑️
+    /// - Parameter style: The text field style.
+    /// - Returns: A text field with the updated style.
+    func textFieldStyle(_ style: UITextField.BorderStyle) -> Self {
+        var view = self
+        view.borderStyle = style
+        return view
+    }
+    
+    /// Modifies the maximum number of digits the text field allows. 🔟
+    /// - Parameter max: The naximum number of digits in the text field.
+    /// - Returns: A text field with the updated maximum digits settings.
+    func maximumDigits(_ max: Int?) -> Self {
+        var view = self
+        view.maxDigits = max
+        return view
+    }
+    
+    /// Modifies whether the text field shows the country flag on the left. 🇦🇶
+    /// - Parameter showsFlag: Whether the text field shows the flag.
+    /// - Returns: A text field with the updated flag visibility.
+    func showsFlag(_ showsFlag: Bool) -> Self {
+        var view = self
+        view.showFlag = showsFlag
+        return view
+    }
+    
+    /// Modifies whether the flag is selectable 🇸🇮.
+    /// When set to `true`, tapping on the flag will pull up a sheet allowing the user to select a flag.
+    /// - Parameter isFlagSelectable: Whether the flag is selectable.
+    /// - Returns: A text field with the updated flag-selectability settings.
+    func isFlagSelectable(_ isFlagSelectable: Bool) -> Self {
+        var view = self
+        view.selectableFlag = isFlagSelectable
+        return view
+    }
+    
+    /// Modifies whether the country code prefix should be shown. ➕1️⃣
+    /// - Parameter showPrefix: Whether the country code prefix should be shown.
+    /// - Returns: A text field with the updated prefix settings.
+    func showPrefix(_ showPrefix: Bool) -> Self {
+        var view = self
+        view.autofillPrefix = showPrefix
         return view
     }
     
@@ -171,7 +336,7 @@ public extension iPhoneNumberTextField {
 
     /// Modifies the function called when the user clears the text field. ❌
     /// - Parameter action: The action to perform. If `action` is `nil`, the call has no effect.
-    /// - Returns: An updated text field using the desired function called when the user clears the text field
+    /// - Returns: An updated text field using the desired function called when the user clears the text field.
     func onClear(perform action: ((PhoneNumberTextField) -> Void)? = nil) -> Self {
         var view = self
         if let action = action {
@@ -180,24 +345,14 @@ public extension iPhoneNumberTextField {
         return view
     }
     
-    func textFieldStyle(_ style: UITextField.BorderStyle) -> Self {
+    /// Modifies the function called when the user presses return. ↪️
+    /// - Parameter action: The action to perform. If `action` is `nil`, the call has no effect.
+    /// - Returns: An updated text field using the desired function called when the user presses the return key.
+    func onReturn(perfom action: ((PhoneNumberTextField) -> Void)? = nil) -> Self {
         var view = self
-        view.borderStyle = style
-        return view
-    }
-    func maximumDigits(_ max: Int?) -> Self {
-        var view = self
-        view.maxDigits = max
-        return view
-    }
-    func showsFlag(_ showsFlag: Bool) -> Self {
-        var view = self
-        view.showFlag = showsFlag
-        return view
-    }
-    func isFlagSelectable(_ isFlagSelectable: Bool) -> Self {
-        var view = self
-        view.selectableFlag = isFlagSelectable
+        if let action = action {
+            view.onReturnHandler = action
+        }
         return view
     }
 }

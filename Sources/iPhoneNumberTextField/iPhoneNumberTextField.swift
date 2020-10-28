@@ -55,7 +55,7 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
     internal var selectableFlag: Bool = false
 
     /// Automatically fill the country code.
-    private let autofillPrefix: Bool
+    internal var autofillPrefix: Bool = false
 
     /// The text color of the textField.
     internal var textColor: UIColor?
@@ -85,6 +85,8 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
     internal var onEndEditingHandler = { (view: PhoneNumberTextField) in }
     
     internal var onClearHandler = { (view: PhoneNumberTextField) in }
+    
+    internal var onReturnHandler = { (view: PhoneNumberTextField) in }
 
     /// Access all properties of the original UIView.
     public var configuration = { (view: PhoneNumberTextField) in }
@@ -114,7 +116,6 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
         self.externalIsFirstResponder = isEditing
         self._text = text
         self.configuration = configuration
-        self.autofillPrefix = showFlag
     }
 
     public func makeUIView(context: UIViewRepresentableContext<Self>) -> PhoneNumberTextField {
@@ -169,7 +170,8 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
                     onBeginEditing: onBeginEditingHandler,
                     onEditingChange: onEditingChangeHandler,
                     onEndEditing: onEndEditingHandler,
-                    onClear: onClearHandler)
+                    onClear: onClearHandler,
+                    onReturn: onReturnHandler)
     }
 
     public class Coordinator: NSObject, UITextFieldDelegate {
@@ -179,7 +181,8 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
             onBeginEditing: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in },
             onEditingChange: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in },
             onEndEditing: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in },
-            onClear: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in }
+            onClear: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in },
+            onReturn: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in }
         ) {
 
             self.text = text
@@ -187,6 +190,7 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
             self.onBeginEditing = onBeginEditing
             self.onEndEditing = onEndEditing
             self.onClear = onClear
+            self.onReturn = onReturn
         }
 
         var text: Binding<String>
@@ -197,6 +201,7 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
         var onPhoneNumberChange = { (phoneNumber: PhoneNumber?) in }
         var onEndEditing = { (view: PhoneNumberTextField) in }
         var onClear = { (view: PhoneNumberTextField) in }
+        var onReturn = { (view: PhoneNumberTextField) in }
 
         @objc public func textViewDidChange(_ textField: UITextField) {
             guard let textField = textField as? PhoneNumberTextField else { return assertionFailure("Undefined state") }
@@ -218,7 +223,12 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
         public func textFieldShouldClear(_ textField: UITextField) -> Bool {
             text.wrappedValue = ""
             self.onClear(textField as! PhoneNumberTextField)
-            return false
+            return true
+        }
+        
+        public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            self.onReturn(textField as! PhoneNumberTextField)
+            return true
         }
     }
 }
