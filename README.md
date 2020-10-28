@@ -85,7 +85,7 @@ Use our exhaustive input list to customize your view.
 
 
 | | Modifier | Descriptoin
-| --- | ---
+--- | --- | ---
 🔠 | `.font(_:)` | Modifies the text field’s **font** from a `UIFont` object.
 🎨 | `.foregroundColor(_:)` | Modifies the **text color**  of the text field.
 🌈 | `.placeholderColor(_:)` | Modifies the **placeholder color** of the text field.
