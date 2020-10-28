@@ -84,7 +84,7 @@ iPhoneNumberTextField("", text: $text)
 Use our exhaustive input list to customize your view.
 
 
-| | Modifier | Descriptoin
+| | Modifier | Description
 --- | --- | ---
 🔠 | `.font(_:)` | Modifies the text field’s **font** from a `UIFont` object.
 🎨 | `.foregroundColor(_:)` | Modifies the **text color**  of the text field.
@@ -108,6 +108,10 @@ Use our exhaustive input list to customize your view.
 🔚 | `.onEndEditing(perform: ({ code })` | Modifies the function called when text editing **ends**.
 🔘 | `.onClear(perform: { code })` | Modifies the function called when the user clears the text field.
 ↪️ | `.onReturn(perfom: { code })` | Modifies the function called when the user presses return.
+
+
+## Install
+You can use the Swift package manager to install `iPhoneNumberTextField`. Find instructions [here] (https://github.com/benjaminsage/iPhoneNumberTextField/blob/main/INSTALL.md)
 
 ##  Features
 
