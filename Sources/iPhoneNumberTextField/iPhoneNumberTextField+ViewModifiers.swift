@@ -88,7 +88,7 @@ public extension iPhoneNumberTextField {
 
     /// Modifies the **placeholder color** 🌈 of the text field.
     /// - Parameter color: The placeholder color. 🎨
-    /// - Returns: A phone number text field with updated pleceholder color. 🚥🖍
+    /// - Returns: A phone number text field with updated number pleceholder color. 🚥🖍
     func placeholderColor(_ color: CGColor?) -> Self {
         self
             .numberPlaceholderColor(color)
@@ -97,7 +97,7 @@ public extension iPhoneNumberTextField {
     
     /// Modifies the **number placeholder color** 🌈 of the text field.
     /// - Parameter color: The placeholder color. 🎨
-    /// - Returns: A phone number text field with updated pleceholder color.
+    /// - Returns: A phone number text field with updated number pleceholder color.
     @available(iOS 14, *)
     func numberPlaceholderColor(_ color: Color?) -> Self {
         if let color = color {
@@ -109,7 +109,7 @@ public extension iPhoneNumberTextField {
     
     /// Modifies the **number placeholder color** 🌈 of the text field.
     /// - Parameter color: The placeholder color. 🎨
-    /// - Returns: A phone number text field with updated pleceholder color.
+    /// - Returns: A phone number text field with updated number pleceholder color.
     /// - Warning: ⚠️ Accepts a `UIColor` object rather than SwiftUI `Color` ⚠️
     /// - SeeAlso: [`UIFont`](https://developer.apple.com/documentation/uikit/uicolor)
     func numberPlaceholderColor(_ color: UIColor?) -> Self {
@@ -119,8 +119,8 @@ public extension iPhoneNumberTextField {
     }
     
     /// Modifies the **number placeholder color** 🌈 of the text field.
-    /// - Parameter color: The placeholder color. 🎨
-    /// - Returns: A phone number text field with updated pleceholder color.
+    /// - Parameter color: The number placeholder color. 🎨
+    /// - Returns: A phone number text field with updated number pleceholder color.
     /// - Warning: ⚠️ Accepts a `CGColor` object rather than SwiftUI `Color` ⚠️
     /// - SeeAlso: [`UIFont`](https://developer.apple.com/documentation/coregraphics/cgcolor)
     func numberPlaceholderColor(_ color: CGColor?) -> Self {
@@ -131,9 +131,9 @@ public extension iPhoneNumberTextField {
         }
     }
     
-    /// Modifies the **number placeholder color** 🌈 of the text field.
-    /// - Parameter color: The placeholder color 🎨
-    /// - Returns: A phone number text field with updated pleceholder color
+    /// Modifies the **country code placeholder color** 🌈 of the text field.
+    /// - Parameter color: The country code placeholder color 🎨
+    /// - Returns: A phone number text field with updated country code pleceholder color
     @available(iOS 14, *)
     func countryCodePlaceholderColor(_ color: Color?) -> Self {
         if let color = color {
@@ -143,9 +143,9 @@ public extension iPhoneNumberTextField {
         }
     }
     
-    /// Modifies the **number placeholder color** 🌈 of the text field.
-    /// - Parameter color: The placeholder color 🎨
-    /// - Returns: A phone number text field with updated pleceholder color
+    /// Modifies the **country code placeholder color** 🌈 of the text field.
+    /// - Parameter color: The country code placeholder color 🎨
+    /// - Returns: A phone number text field with updated country code pleceholder color
     /// - Warning: ⚠️ Accepts a `UIColor` object rather than SwiftUI `Color` ⚠️
     /// - SeeAlso: [`UIFont`](https://developer.apple.com/documentation/uikit/uicolor)
     func countryCodePlaceholderColor(_ color: UIColor?) -> Self {
@@ -154,9 +154,9 @@ public extension iPhoneNumberTextField {
         return view
     }
     
-    /// Modifies the **number placeholder color** 🌈 of the text field.
-    /// - Parameter color: The placeholder color 🎨
-    /// - Returns: A phone number text field with updated pleceholder color
+    /// Modifies the **country code placeholder color** 🌈 of the text field.
+    /// - Parameter color: The country code placeholder color 🎨
+    /// - Returns: A phone number text field with updated country code pleceholder color
     /// - Warning: ⚠️ Accepts a `CGColor` object rather than SwiftUI `Font` ⚠️
     /// - SeeAlso: [`UIFont`](https://developer.apple.com/documentation/coregraphics/cgcolor)
     func countryCodePlaceholderColor(_ color: CGColor?) -> Self {
