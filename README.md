@@ -15,6 +15,11 @@
 
 <br />
 
+## And it's as easy as
+```swift
+	iPhoneNumberTextField("Phone", text: $text)
+```
+
 ## Get Started
 
 1. [Install](./blob/main/INSTALL.md) `iPhoneNumberTextField`.
