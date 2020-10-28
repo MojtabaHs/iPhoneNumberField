@@ -44,7 +44,7 @@ struct ContentView: View {
 
 ## Examples
 ### Example 1
-<img src="./Resources/example-1.gif" height="500">
+<img src="./Resources/example-1-alt.gif" height="200">
 
 Use `iPhoneNumberTextField`'s optional binding to programmatically change text field focus.
 
