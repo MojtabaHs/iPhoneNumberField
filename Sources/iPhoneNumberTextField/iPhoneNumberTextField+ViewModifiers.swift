@@ -254,11 +254,11 @@ public extension iPhoneNumberTextField {
     }
     
     /// Modifies whether the text field shows the country flag on the left. 🇦🇶
-    /// - Parameter showsFlag: Whether the text field shows the flag.
+    /// - Parameter showFlag: Whether the text field shows the flag.
     /// - Returns: A text field with the updated flag visibility.
-    func showsFlag(_ showsFlag: Bool) -> Self {
+    func showFlag(_ showFlag: Bool) -> Self {
         var view = self
-        view.showFlag = showsFlag
+        view.showFlag = showFlag
         return view
     }
     

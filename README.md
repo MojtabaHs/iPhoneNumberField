@@ -45,7 +45,7 @@ struct ContentView: View {
 ## Examples
 ### Example 1
 
-Use `iPhoneNumberTextField` to
+Use `iPhoneNumberTextField`'s optional binding to programmatically change text field focus.
 
 ```swift
 import SwiftUI
@@ -53,9 +53,11 @@ import iPhoneNumberTextField
 
 struct ContentView: View {
     @State var text = ""
+    @State var isEditing = false
 
     var body: some View {
-        iPhoneNumberTextField("Phone", text: $text)
+        iPhoneNumberTextField("Phone", text: $text,
+                              isEditing: $isEditing)
     }
 }
 ```
@@ -63,9 +65,7 @@ struct ContentView: View {
 
 ### Example 2
 
-Use `iPhoneNumberTextField` to
-
-If you want, you can pass in your own optional `isEditing` binding to `iPhoneNumberTextField`.
+Show the flag, and make it selectable, so your users can find their region.
 
 ```swift
 import SwiftUI
@@ -76,6 +76,8 @@ struct ContentView: View {
 
     var body: some View {
         iPhoneNumberTextField("Phone", text: $text)
+            .showsFlag(true)
+            .isFlagSelectable(true)
     }
 }
 ```
@@ -83,9 +85,13 @@ struct ContentView: View {
 ## Customize
 `iPhoneNumberTextField` takes 2 required parameters: 1️⃣ a `String` placeholder, and 2️⃣ a binding to a phone number string. All customizations are built into our modifiers.
 
-**Example**: Do things
+**Example**: Customize the text field style, and call a closure when editing ends.
 ```swift
 iPhoneNumberTextField("", text: $text)
+	.accentColor(Color.green)
+	.clearsOnBeginEditing(true)
+	.clearButtonMode(.always)
+	.onEditingEnded { print("DONE ✅") }
 ```
 Use our exhaustive input list to customize your view.
 
@@ -104,7 +110,7 @@ Use our exhaustive input list to customize your view.
 ❌ | `.clearButtonMode(_:)` | Modifies whether and when the text field **clear button** appears on the view.
 ☑️ | `.textFieldStyle(_:)` | Modifies the style of the text field.
 🔟 | `.maximumDigits(_:)` | Modifies the maximum number of digits the text field allows.
-🇦🇶 | `.showsFlag(_:)` | Modifies whether the text field shows the country flag on the left.
+🇦🇶 | `.showFlag(_:)` | Modifies whether the text field shows the country flag on the left.
 🇸🇮 | `.isFlagSelectable(_:)` | Modifies whether the flag is selectable.
 ➕ | `.showPrefix(_:)` | Modifies whether the country code prefix should be shown.
 ✋ | `.disabled(_:)` | Modifies whether the text field is **disabled**.
