@@ -143,18 +143,14 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
         uiView.withFlag = showFlag
         uiView.withDefaultPickerUI = selectableFlag
         uiView.withPrefix = autofillPrefix
+        uiView.textContentType = contentType
+        uiView.tintColor = accentColor
 
         if let numberPlaceholderColor = numberPlaceholderColor {
             uiView.numberPlaceholderColor = numberPlaceholderColor
         }
         if let countryCodePlaceholderColor = countryCodePlaceholderColor {
             uiView.countryCodePlaceholderColor = countryCodePlaceholderColor
-        }
-        if let contentType = contentType {
-            uiView.textContentType = contentType
-        }
-        if let accentColor = accentColor {
-            uiView.tintColor = accentColor
         }
         if let textAlignment = textAlignment {
             uiView.textAlignment = textAlignment
@@ -220,8 +216,8 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
         }
         
         public func textFieldShouldClear(_ textField: UITextField) -> Bool {
-            self.onClear(textField as! PhoneNumberTextField)
             text.wrappedValue = ""
+            self.onClear(textField as! PhoneNumberTextField)
             return false
         }
     }
