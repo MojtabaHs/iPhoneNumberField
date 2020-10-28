@@ -65,6 +65,7 @@ struct ContentView: View {
 
 
 ### Example 2
+<img src="./Resources/example-2.gif" height="200">
 
 Show the flag, and make it selectable, so your users can find their region.
 
