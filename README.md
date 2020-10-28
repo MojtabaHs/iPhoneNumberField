@@ -1,7 +1,7 @@
 <h1 align="center"> iPhoneNumberTextField ☎️</p>
 <h3 align="center">Format phone numbers as they're typed.</h3>
-<p align="center">(entirely in SwiftUI)</p>
-
+<!-- <p align="center">(entirely in SwiftUI!)</p>
+ -->
 <p align="center">
     <strong><a href="#get-started">Get Started</a></strong> |
     <strong><a href="#examples">Examples</a></strong> |
