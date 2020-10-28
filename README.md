@@ -85,12 +85,12 @@ Use our exhaustive input list to customize your view.
 
 
 | | Modifier | Descriptoin
---- | ---
+| --- | ---
 🔠 | `.font(_:)` | Modifies the text field’s **font** from a `UIFont` object.
 🎨 | `.foregroundColor(_:)` | Modifies the **text color**  of the text field.
 🌈 | `.placeholderColor(_:)` | Modifies the **placeholder color** of the text field.
 🖍 | `.numberPlaceholderColor(_:)` | Modifies the **number placeholder color** of the text field.
-🐠| `.countryCodePlaceholderColor(_:)` | Modifies the **number placeholder color** of the text field.
+🐠 | `.countryCodePlaceholderColor(_:)` | Modifies the **number placeholder color** of the text field.
 ↔️ | `.multilineTextAlignment(_:)` |Modifies the **text alignment** of a text field.
 ☎️ | `.textContentType(_:)` | Modifies the **content type** of a text field.
 ▶️ | `.clearsOnBeginEditing(_:)` | Modifies the **clear-on-begin-editing** setting of a  text field.
