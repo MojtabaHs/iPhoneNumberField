@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-    <img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/gifcity.gif" alt="CI" />
+    <img src="./Resources/demo.gif" alt="CI" />
 </p>
 
 <br />
