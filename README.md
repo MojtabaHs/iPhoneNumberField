@@ -36,7 +36,7 @@ struct ContentView: View {
 3. Customize your `iPhoneNumberTextField`
 
 
-##Examples
+## Examples
 ### Example 1
 
 Use `iPhoneNumberTextField` to
@@ -121,22 +121,3 @@ You can use the Swift package manager to install `iPhoneNumberTextField`. Find i
 Commercial friends, please note, this license is <b><a href="https://en.wikipedia.org/wiki/GNU_General_Public_License#Legal_barrier_to_app_stores">incompatible with many commercial applications</a></b>. If your end product may make money, licenses are available for only $0.99.
 
 <p align="center"><a href="https://general099748.typeform.com/to/p5FtTKBj"> <img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/Purchase%20License.png" width="300"> </a> </p>
-
-##  Features
-
-| |Features |
---------------------------|------------------------------------------------------------
-🎨 | Extremely customizable
-:phone: | Validate, normalize and extract the elements of any phone number string.
-:checkered_flag: | Fast. 1000 parses -> ~0.4 seconds.
-:books: | Best-in-class metadata from Google's libPhoneNumber project.
-:trophy: | Fully tested to match the accuracy of Google's JavaScript implementation of libPhoneNumber.
-:iphone: | Built for iOS. Automatically grabs the default region code from the phone.
-📝 | Editable (!) AsYouType formatter for UITextField.
-:us: | Convert country codes to country names and vice versa
-⚙️ | Access to all native `UITextField` configurations
-🔍 | Searchable and customizable country code and name list
-∞ | Many more features to discover
-
-
-  [1]: https://i.stack.imgur.com/5Jvig.gif
