@@ -125,7 +125,7 @@ Use our exhaustive input list to customize your view.
 
 
 ## Install
-You can use the Swift package manager to install `iPhoneNumberTextField`. Find instructions [here] (https://github.com/benjaminsage/iPhoneNumberTextField/blob/main/INSTALL.md)
+You can use the Swift package manager to install `iPhoneNumberTextField`. Find instructions [here](https://github.com/benjaminsage/iPhoneNumberTextField/blob/main/INSTALL.md)
 
 ## Usage
 <b>`iPhoneNumberTextField`is FREE and open-source for individuals, and will remain that way forever.</b>
