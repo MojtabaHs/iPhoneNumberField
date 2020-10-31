@@ -351,5 +351,5 @@ public extension iPhoneNumberTextField {
     /// - Parameter textContentType:
     /// - Returns: self
     @available(*, deprecated, message: "Our packages inherently voids the functionallity of textContentType 🙃")
-    func textContentType(_ textContentType: UITextContentType?) -> some View { return EmptyView() }
+    func textContentType(_ textContentType: UITextContentType?) -> Self { return self }
 }
