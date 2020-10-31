@@ -95,9 +95,6 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
     @Environment(\.layoutDirection) internal var layoutDirection: LayoutDirection
     internal var textAlignment: NSTextAlignment?
     
-    /// The content type of the textField.
-    internal var contentType: UITextContentType?
-    
     /// Whether the textField clears on begin editing.
     internal var clearsOnBeginEditing = false
     
@@ -144,7 +141,6 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
         uiView.withFlag = showFlag
         uiView.withDefaultPickerUI = selectableFlag
         uiView.withPrefix = autofillPrefix
-        uiView.textContentType = contentType
         uiView.tintColor = accentColor
 
         if let numberPlaceholderColor = numberPlaceholderColor {

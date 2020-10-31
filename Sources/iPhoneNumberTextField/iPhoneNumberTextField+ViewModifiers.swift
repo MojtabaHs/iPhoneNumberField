@@ -199,15 +199,6 @@ public extension iPhoneNumberTextField {
         return view
     }
     
-    /// Modifies the **content type** of a text field. 📧 ☎️ 📬
-    /// - Parameter textContentType: The type of text being inputted into the text field ⌨️
-    /// - Returns: An updated text field using the desired text content type 💻📨
-    func textContentType(_ textContentType: UITextContentType?) -> Self {
-        var view = self
-        view.contentType = textContentType
-        return view
-    }
-    
     /// Modifies the **clear-on-begin-editing** setting of a  text field. ❌▶️
     /// - Parameter shouldClear: Whether the text field should clear on editing beginning 📭🏁
     /// - Returns:  A text field with updated clear-on-begin-editing settings 🔁
@@ -355,4 +346,10 @@ public extension iPhoneNumberTextField {
         }
         return view
     }
+    
+    /// Our packages inherently voids the functionallity of textContentType 🙃. As described by Apple 👩‍💻, "The textContentType property is designed to provide the keyboard with extra information about the semantic intent of the text document". However, in our case the semantic intent is always to write a phone number 😁☎
+    /// - Parameter textContentType:
+    /// - Returns: self
+    @available(*, deprecated, message: "Our packages inherently voids the functionallity of textContentType 🙃")
+    func textContentType(_ textContentType: UITextContentType?) -> some View { return EmptyView() }
 }
