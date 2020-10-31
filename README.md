@@ -100,19 +100,20 @@ Use our exhaustive input list to customize your view.
 --- | --- | ---
 🔠 | `.font(_:)` | Modifies the text field’s **font** from a `UIFont` object.
 🎨 | `.foregroundColor(_:)` | Modifies the **text color**  of the text field.
-🌈 | `.placeholderColor(_:)` | Modifies the **placeholder color** of the text field.
-🖍 | `.numberPlaceholderColor(_:)` | Modifies the **number placeholder color** of the text field.
-🐠 | `.countryCodePlaceholderColor(_:)` | Modifies the **number placeholder color** of the text field.
-↔️ | `.multilineTextAlignment(_:)` |Modifies the **text alignment** of a text field.
-☎️ | `.textContentType(_:)` | Modifies the **content type** of a text field.
+🖍 | `.accentColor(_:)` | Modifies the **cursor color**  while typing on the text field.
+🌈 | `.placeholderColor(_:)` | Modifies the <i>entire</i> **placeholder color** of the text field.
+🖍 | `.numberPlaceholderColor(_:)` | Modifies <i>solely</i> the **phone number placeholder color** of the text field – without the country code.
+🐠 | `.countryCodePlaceholderColor(_:)` | Modifies <i>solely</i> the **country code placeholder color** of the text field – without the phone number.
+↔️ | `.multilineTextAlignment(_:)` | Modifies the **text alignment** of a text field.
+☎️ | `.textContentType(_:)` | Modifies the **content type** of a text field for implied formatting. 
 ▶️ | `.clearsOnBeginEditing(_:)` | Modifies the **clear-on-begin-editing** setting of a  text field.
 👆 | `.clearsOnInsertion(_:)` | Modifies the **clear-on-insertion** setting of a text field.
 ❌ | `.clearButtonMode(_:)` | Modifies whether and when the text field **clear button** appears on the view.
-☑️ | `.textFieldStyle(_:)` | Modifies the style of the text field.
+☑️ | `.textFieldStyle(_:)` | Modifies the style of the text field to one of Apple's three pre-designed styles.
 🔟 | `.maximumDigits(_:)` | Modifies the maximum number of digits the text field allows.
 🇦🇶 | `.showFlag(_:)` | Modifies whether the text field shows the country flag on the left.
 🇸🇮 | `.isFlagSelectable(_:)` | Modifies whether the flag is selectable.
-➕ | `.showPrefix(_:)` | Modifies whether the country code prefix should be shown.
+➕ | `.showPrefix(_:)` | Modifies whether the country code prefix should be shown. Note: prefix will only be shown if using a default placeholder. 
 ✋ | `.disabled(_:)` | Modifies whether the text field is **disabled**.
 ▶️ | `.onBeginEditing(perform: { code })` | Modifies the function called when text editing **begins**.
 💬 | `.onPhoneNumberChange(perform: { code })` | Modifies the function called when the user makes any **changes** to the text in the text field.
