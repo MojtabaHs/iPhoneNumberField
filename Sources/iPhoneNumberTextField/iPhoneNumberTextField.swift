@@ -142,6 +142,7 @@ public struct iPhoneNumberTextField: UIViewRepresentable {
         uiView.withDefaultPickerUI = selectableFlag
         uiView.withPrefix = autofillPrefix
         uiView.tintColor = accentColor
+        uiView.clearsOnInsertion = clearsOnInsertion
 
         if let numberPlaceholderColor = numberPlaceholderColor {
             uiView.numberPlaceholderColor = numberPlaceholderColor
