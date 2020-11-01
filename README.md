@@ -44,8 +44,8 @@ struct ContentView: View {
 
 ## Examples
 ### Example 1
-
-Use `iPhoneNumberTextField`'s optional binding to programmatically change text field focus.
+<img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example1.gif">
+Use `iPhoneNumberTextField`'s optional binding to programmatically change text field. 
 
 ```swift
 import SwiftUI
@@ -53,18 +53,18 @@ import iPhoneNumberTextField
 
 struct ContentView: View {
     @State var text = ""
-    @State var isEditing = false
 
     var body: some View {
-        iPhoneNumberTextField("Phone", text: $text,
-                              isEditing: $isEditing)
+        iPhoneNumberTextField(text: $text)
+            .font(UIFont(size: 24, weight: .light, design: .monospaced))
+            .padding()
     }
 }
 ```
 
 
 ### Example 2
-
+<img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example2.gif">
 Show the flag, and make it selectable, so your users can find their region.
 
 ```swift
@@ -75,9 +75,45 @@ struct ContentView: View {
     @State var text = ""
 
     var body: some View {
-        iPhoneNumberTextField("Phone", text: $text)
-            .showsFlag(true)
+        iPhoneNumberTextField(text: $text)
+            .showFlag(true)
             .isFlagSelectable(true)
+            .font(UIFont(size: 30, weight: .bold, design: .rounded))
+            .padding()
+    }
+}
+```
+
+
+### Example 3
+<img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example3.gif">
+Use our modifiers to create a fully customized field.
+
+```swift
+import SwiftUI
+import iPhoneNumberTextField
+
+struct ContentView: View {
+    @State var text: String = ""
+    @State var isEditing: Bool = false
+
+    var body: some View {
+        iPhoneNumberTextField("(000) 000-0000", text: $text, isEditing: $isEditing)
+            .showFlag(true)
+            .isFlagSelectable(true)
+            .font(UIFont(size: 30, weight: .light, design: .monospaced))
+            .maximumDigits(10)
+            .foregroundColor(Color.neonPink)
+            .clearButtonMode(.whileEditing)
+            .onClear { _ in
+                self.isEditing.toggle()
+            }
+            .accentColor(Color.neonOrange)
+            .padding()
+            .background(Color(hue: 0, saturation: 0, brightness: 95, opacity: 1.0))
+            .cornerRadius(10)
+            .shadow(color: .lightGray, radius: 10)
+            .padding()
     }
 }
 ```
