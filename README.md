@@ -86,7 +86,7 @@ struct ContentView: View {
 
 
 ### Example 3
-<img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example3.gif">
+<img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example4.gif">
 Use our modifiers to create a fully customized field.
 
 ```swift
@@ -112,7 +112,7 @@ struct ContentView: View {
             .padding()
             .background(Color(hue: 0, saturation: 0, brightness: 95, opacity: 1.0))
             .cornerRadius(10)
-            .shadow(color: .lightGray, radius: 10)
+            .shadow(color: ((self.isEditing) ? .lightGray : .white), radius: 10)
             .padding()
     }
 }
