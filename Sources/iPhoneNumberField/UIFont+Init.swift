@@ -6,15 +6,18 @@
 //
 
 #if os(macOS)
+
 import AppKit
 public typealias NativeFont = NSFont
 public typealias NativeFontDescriptor = NSFontDescriptor
+
 #elseif os(iOS)
+
 import UIKit
 public typealias NativeFont = UIFont
 public typealias NativeFontDescriptor = UIFontDescriptor
-#endif
 
+#endif
 
 public extension NativeFont {
     /// Initializes a `UIFont` using the same system initializer syntax available in `Font` 🔠🔡
