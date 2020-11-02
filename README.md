@@ -176,7 +176,7 @@ Use our exhaustive input list to customize your view.
 
 
 ## Install
-You can use the Swift package manager to install `iPhoneNumberField`. Find instructions [here] (https://github.com/benjaminsage/iPhoneNumberField/blob/main/INSTALL.md)
+You can use the Swift package manager to install `iPhoneNumberField`. Find instructions [here](./blob/main/INSTALL.md)
 
 ## Usage
 <b>`iPhoneNumberField`is FREE and open-source for individuals, and will remain that way forever.</b>
