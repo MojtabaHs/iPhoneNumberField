@@ -1,6 +1,6 @@
 //
-//  iPhoneNumberTextField.swift
-//  iPhoneNumberTextField
+//  iPhoneNumberField.swift
+//  iPhoneNumberField
 //
 //  Created by Seyed Mojtaba Hosseini Zeidabadi on 10/23/20.
 //  Copyright © 2020 Chenzook. All rights reserved.
@@ -14,7 +14,7 @@ import SwiftUI
 import PhoneNumberKit
 
 // MARK: - Usage:
-public struct iPhoneNumberTextField: UIViewRepresentable {
+public struct iPhoneNumberField: UIViewRepresentable {
     /// The actual text of the textField. It's includes the extra formatting characters.
     @Binding public var text: String
 

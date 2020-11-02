@@ -1,6 +1,6 @@
 //
-//  iPhoneNumberTextField+ViewModifiers.swift
-//  iPhoneNumberTextField
+//  iPhoneNumberField+ViewModifiers.swift
+//  iPhoneNumberField
 //
 //  Created by Seyed Mojtaba Hosseini Zeidabadi on 10/23/20.
 //  Copyright © 2020 Chenzook. All rights reserved.
@@ -13,7 +13,7 @@
 import SwiftUI
 import PhoneNumberKit
 
-public extension iPhoneNumberTextField {
+public extension iPhoneNumberField {
     
     /// Modifies the text field’s **font** from a `UIFont` object. 🔠🔡
     /// - Parameter font: The desired font 🅰️🆗

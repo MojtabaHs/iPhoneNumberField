@@ -1,4 +1,4 @@
-<h1 align="center"> iPhoneNumberTextField ☎️</p>
+<h1 align="center"> iPhoneNumberField ☎️</p>
 <h3 align="center">Format phone numbers as they're typed.</h3>
 <!-- <p align="center">(entirely in SwiftUI!)</p>
  -->
@@ -19,44 +19,44 @@
 
 ## And it's as easy as
 ```swift
-	iPhoneNumberTextField("Phone", text: $text)
+	iPhoneNumberField("Phone", text: $text)
 ```
 
 ## Get Started
 
-1. [Install](./blob/main/INSTALL.md) `iPhoneNumberTextField`.
+1. [Install](./blob/main/INSTALL.md) `iPhoneNumberField`.
 
-2. Add `iPhoneNumberTextField` to your project.
+2. Add `iPhoneNumberField` to your project.
 ```swift
 import SwiftUI
-import iPhoneNumberTextField
+import iPhoneNumberField
 
 struct ContentView: View {
     @State var text = ""
 
     var body: some View {
-        iPhoneNumberTextField("Phone", text: $text)
+        iPhoneNumberField("Phone", text: $text)
     }
 }
 ```
 
-3. Customize your `iPhoneNumberTextField`
+3. Customize your `iPhoneNumberField`
 
 
 ## Examples
 ### Example 1
 <img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example1.gif">
-Use `iPhoneNumberTextField`'s optional binding to programmatically change text field. 
+Use `iPhoneNumberField`'s optional binding to programmatically change text field. 
 
 ```swift
 import SwiftUI
-import iPhoneNumberTextField
+import iPhoneNumberField
 
 struct ContentView: View {
     @State var text = ""
 
     var body: some View {
-        iPhoneNumberTextField(text: $text)
+        iPhoneNumberField(text: $text)
             .font(UIFont(size: 24, weight: .light, design: .monospaced))
             .padding()
     }
@@ -70,13 +70,13 @@ Show the flag, and make it selectable, so your users can find their region.
 
 ```swift
 import SwiftUI
-import iPhoneNumberTextField
+import iPhoneNumberField
 
 struct ContentView: View {
     @State var text = ""
 
     var body: some View {
-        iPhoneNumberTextField(text: $text)
+        iPhoneNumberField(text: $text)
             .showFlag(true)
             .isFlagSelectable(true)
             .font(UIFont(size: 30, weight: .bold, design: .rounded))
@@ -92,14 +92,14 @@ Use our modifiers to create a fully customized field.
 
 ```swift
 import SwiftUI
-import iPhoneNumberTextField
+import iPhoneNumberField
 
 struct ContentView: View {
     @State var text: String = ""
     @State var isEditing: Bool = false
 
     var body: some View {
-        iPhoneNumberTextField("(000) 000-0000", text: $text, isEditing: $isEditing)
+        iPhoneNumberField("(000) 000-0000", text: $text, isEditing: $isEditing)
             .showFlag(true)
             .isFlagSelectable(true)
             .font(UIFont(size: 30, weight: .light, design: .monospaced))
@@ -120,11 +120,11 @@ struct ContentView: View {
 ```
 
 ## Customize
-`iPhoneNumberTextField` takes 2 required parameters: 1️⃣ a `String` placeholder, and 2️⃣ a binding to a phone number string. All customizations are built into our modifiers.
+`iPhoneNumberField` takes 2 required parameters: 1️⃣ a `String` placeholder, and 2️⃣ a binding to a phone number string. All customizations are built into our modifiers.
 
 **Example**: Customize the text field style, and call a closure when editing ends.
 ```swift
-iPhoneNumberTextField("", text: $text)
+iPhoneNumberField("", text: $text)
 	.accentColor(Color.green)
 	.clearsOnBeginEditing(true)
 	.clearButtonMode(.always)
@@ -176,12 +176,12 @@ Use our exhaustive input list to customize your view.
 
 
 ## Install
-You can use the Swift package manager to install `iPhoneNumberTextField`. Find instructions [here] (https://github.com/benjaminsage/iPhoneNumberTextField/blob/main/INSTALL.md)
+You can use the Swift package manager to install `iPhoneNumberField`. Find instructions [here] (https://github.com/benjaminsage/iPhoneNumberField/blob/main/INSTALL.md)
 
 ## Usage
-<b>`iPhoneNumberTextField`is FREE and open-source for individuals, and will remain that way forever.</b>
+<b>`iPhoneNumberField`is FREE and open-source for individuals, and will remain that way forever.</b>
 
-`iPhoneNumberTextField` is distributed under a GNU GPL open source license. 
+`iPhoneNumberField` is distributed under a GNU GPL open source license. 
 
 Commercial friends, please note, this license is <b><a href="https://en.wikipedia.org/wiki/GNU_General_Public_License#Legal_barrier_to_app_stores">incompatible with many commercial applications</a></b>. If your end product may make money, licenses are available for only $0.99.
 
