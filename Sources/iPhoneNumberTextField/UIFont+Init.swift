@@ -1,13 +1,12 @@
 //
-//  File.swift
-//  
+//  UIFont+Init.swift
+//  iPhoneNumberTextField
 //
 //  Created by Kalil Fine on 11/1/20.
 //
 
-import SwiftUI
+import UIKit
 
-@available(iOS 13.0, *)
 public extension UIFont {
     /// Initializes a `UIFont` using the same system initializer syntax available in `Font` 🔠🔡
         /// - Parameters:
