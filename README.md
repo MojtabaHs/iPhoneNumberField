@@ -24,7 +24,7 @@
 
 ## Get Started
 
-1. [Install](./blob/master/INSTALL.md) `iPhoneNumberField`.
+1. [Install](./INSTALL.md) `iPhoneNumberField`.
 
 2. Add `iPhoneNumberField` to your project.
 ```swift
@@ -176,7 +176,7 @@ Use our exhaustive input list to customize your view.
 
 
 ## Install
-You can use the Swift package manager to install `iPhoneNumberField`. Find instructions [here](./blob/master/INSTALL.md)
+You can use the Swift package manager to install `iPhoneNumberField`. Find instructions [here](./INSTALL.md)
 
 ## Usage
 <b>`iPhoneNumberField`is FREE and open-source for individuals, and will remain that way forever.</b>
