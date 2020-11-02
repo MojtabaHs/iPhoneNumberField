@@ -1,5 +1,5 @@
 <h1 align="center"> iPhoneNumberField ☎️</p>
-<h3 align="center">Format phone numbers as they're typed---entirely in SwiftUI. 📱</h3>
+<h3 align="center">Format phone numbers as they're typed—entirely in SwiftUI. 📱</h3>
 <!-- <p align="center">(entirely in SwiftUI!)</p>
  -->
 <p align="center">
