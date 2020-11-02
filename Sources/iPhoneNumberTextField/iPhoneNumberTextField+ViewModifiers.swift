@@ -37,7 +37,7 @@ public extension iPhoneNumberTextField {
             return nilForegroundColor()
         }
     }
-    /// Modifies the **text color** 🎨 of the text field from a `CGColor` obect.
+    /// Modifies the **text color** 🎨 of the text field from a `CGColor` object.
     /// - Parameter color: The desired text color 🌈
     /// - Returns: An updated text field using the desired text color 🚦
     /// - Warning: ⚠️ Accepts a `CGColor` object rather than SwiftUI `Color` ⚠️
@@ -50,7 +50,7 @@ public extension iPhoneNumberTextField {
         }
     }
     
-    /// Modifies the **text color** 🎨 of the text field from a `UIColor` obect.
+    /// Modifies the **text color** 🎨 of the text field from an `UIColor` object.
     /// - Parameter color: The desired text color 🌈
     /// - Returns: An updated text field using the desired text color 🚦
     /// - Warning: ⚠️ Accepts a `UIColor` object rather than SwiftUI `Color` ⚠️
@@ -69,7 +69,7 @@ public extension iPhoneNumberTextField {
     
     /// Modifies the **placeholder color** 🌈 of the text field.
     /// - Parameter color: The placeholder color. 🎨
-    /// - Returns: A phone number text field with updated pleceholder color. 🚥🖍
+    /// - Returns: A phone number text field with updated placeholder color. 🚥🖍
     @available(iOS 14, *)
     func placeholderColor(_ color: Color?) -> Self {
         self
@@ -79,7 +79,7 @@ public extension iPhoneNumberTextField {
     
     /// Modifies the **placeholder color** 🌈 of the text field.
     /// - Parameter color: The placeholder color. 🎨
-    /// - Returns: A phone number text field with updated pleceholder color. 🚥🖍
+    /// - Returns: A phone number text field with updated placeholder color. 🚥🖍
     func placeholderColor(_ color: UIColor?) -> Self {
         self
             .numberPlaceholderColor(color)
@@ -88,7 +88,7 @@ public extension iPhoneNumberTextField {
 
     /// Modifies the **placeholder color** 🌈 of the text field.
     /// - Parameter color: The placeholder color. 🎨
-    /// - Returns: A phone number text field with updated number pleceholder color. 🚥🖍
+    /// - Returns: A phone number text field with updated number placeholder color. 🚥🖍
     func placeholderColor(_ color: CGColor?) -> Self {
         self
             .numberPlaceholderColor(color)
@@ -97,7 +97,7 @@ public extension iPhoneNumberTextField {
     
     /// Modifies the **number placeholder color** 🌈 of the text field.
     /// - Parameter color: The placeholder color. 🎨
-    /// - Returns: A phone number text field with updated number pleceholder color.
+    /// - Returns: A phone number text field with updated number placeholder color.
     @available(iOS 14, *)
     func numberPlaceholderColor(_ color: Color?) -> Self {
         if let color = color {
@@ -109,7 +109,7 @@ public extension iPhoneNumberTextField {
     
     /// Modifies the **number placeholder color** 🌈 of the text field.
     /// - Parameter color: The placeholder color. 🎨
-    /// - Returns: A phone number text field with updated number pleceholder color.
+    /// - Returns: A phone number text field with updated number placeholder color.
     /// - Warning: ⚠️ Accepts a `UIColor` object rather than SwiftUI `Color` ⚠️
     /// - SeeAlso: [`UIFont`](https://developer.apple.com/documentation/uikit/uicolor)
     func numberPlaceholderColor(_ color: UIColor?) -> Self {
@@ -120,7 +120,7 @@ public extension iPhoneNumberTextField {
     
     /// Modifies the **number placeholder color** 🌈 of the text field.
     /// - Parameter color: The number placeholder color. 🎨
-    /// - Returns: A phone number text field with updated number pleceholder color.
+    /// - Returns: A phone number text field with updated number placeholder color.
     /// - Warning: ⚠️ Accepts a `CGColor` object rather than SwiftUI `Color` ⚠️
     /// - SeeAlso: [`UIFont`](https://developer.apple.com/documentation/coregraphics/cgcolor)
     func numberPlaceholderColor(_ color: CGColor?) -> Self {
@@ -133,7 +133,7 @@ public extension iPhoneNumberTextField {
     
     /// Modifies the **country code placeholder color** 🌈 of the text field.
     /// - Parameter color: The country code placeholder color 🎨
-    /// - Returns: A phone number text field with updated country code pleceholder color
+    /// - Returns: A phone number text field with updated country code placeholder color
     @available(iOS 14, *)
     func countryCodePlaceholderColor(_ color: Color?) -> Self {
         if let color = color {
@@ -145,7 +145,7 @@ public extension iPhoneNumberTextField {
     
     /// Modifies the **country code placeholder color** 🌈 of the text field.
     /// - Parameter color: The country code placeholder color 🎨
-    /// - Returns: A phone number text field with updated country code pleceholder color
+    /// - Returns: A phone number text field with updated country code placeholder color
     /// - Warning: ⚠️ Accepts a `UIColor` object rather than SwiftUI `Color` ⚠️
     /// - SeeAlso: [`UIFont`](https://developer.apple.com/documentation/uikit/uicolor)
     func countryCodePlaceholderColor(_ color: UIColor?) -> Self {
@@ -156,7 +156,7 @@ public extension iPhoneNumberTextField {
     
     /// Modifies the **country code placeholder color** 🌈 of the text field.
     /// - Parameter color: The country code placeholder color 🎨
-    /// - Returns: A phone number text field with updated country code pleceholder color
+    /// - Returns: A phone number text field with updated country code placeholder color
     /// - Warning: ⚠️ Accepts a `CGColor` object rather than SwiftUI `Font` ⚠️
     /// - SeeAlso: [`UIFont`](https://developer.apple.com/documentation/coregraphics/cgcolor)
     func countryCodePlaceholderColor(_ color: CGColor?) -> Self {
@@ -236,7 +236,7 @@ public extension iPhoneNumberTextField {
     }
     
     /// Modifies the maximum number of digits the text field allows. 🔟
-    /// - Parameter max: The naximum number of digits in the text field.
+    /// - Parameter max: The maximum number of digits in the text field.
     /// - Returns: A text field with the updated maximum digits settings.
     func maximumDigits(_ max: Int?) -> Self {
         var view = self
@@ -339,7 +339,7 @@ public extension iPhoneNumberTextField {
     /// Modifies the function called when the user presses return. ↪️
     /// - Parameter action: The action to perform. If `action` is `nil`, the call has no effect.
     /// - Returns: An updated text field using the desired function called when the user presses the return key.
-    func onReturn(perfom action: ((PhoneNumberTextField) -> Void)? = nil) -> Self {
+    func onReturn(perform action: ((PhoneNumberTextField) -> Void)? = nil) -> Self {
         var view = self
         if let action = action {
             view.onReturnHandler = action
@@ -347,9 +347,9 @@ public extension iPhoneNumberTextField {
         return view
     }
     
-    /// Our packages inherently voids the functionallity of textContentType 🙃. As described by Apple 👩‍💻, "The textContentType property is designed to provide the keyboard with extra information about the semantic intent of the text document". However, in our case the semantic intent is always to write a phone number 😁☎
+    /// Our packages inherently voids the functionality of textContentType 🙃. As described by Apple 👩‍💻, "The textContentType property is designed to provide the keyboard with extra information about the semantic intent of the text document". However, in our case the semantic intent is always to write a phone number 😁☎
     /// - Parameter textContentType:
     /// - Returns: self
-    @available(*, deprecated, message: "Our packages inherently voids the functionallity of textContentType 🙃")
+    @available(*, deprecated, message: "Our packages inherently voids the functionality of textContentType 🙃")
     func textContentType(_ textContentType: UITextContentType?) -> some View { return EmptyView() }
 }
