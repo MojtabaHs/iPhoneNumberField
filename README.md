@@ -143,19 +143,19 @@ Use our exhaustive input list to customize your view.
 🐠 | `.countryCodePlaceholderColor(_:)` | Modifies <i>solely</i> the **country code placeholder color** of the text field – without the phone number.
 ↔️ | `.multilineTextAlignment(_:)` | Modifies the **text alignment** of a text field.
 ☎️ | `.textContentType(_:)` | Modifies the **content type** of a text field for implied formatting. 
-▶️ | `.clearsOnBeginEditing(_:)` | Modifies the **clear-on-begin-editing** setting of a  text field.
-👆 | `.clearsOnInsertion(_:)` | Modifies the **clear-on-insertion** setting of a text field.
+▶️ | `.clearsOnEditingBegan(_:)` | Modifies the **clear-on-begin-editing** setting of a  text field.
+👆 | `.clearsOnInsert(_:)` | Modifies the **clear-on-insertion** setting of a text field.
 ❌ | `.clearButtonMode(_:)` | Modifies whether and when the text field **clear button** appears on the view.
 ☑️ | `.textFieldStyle(_:)` | Modifies the style of the text field to one of Apple's three pre-designed styles.
 🔟 | `.maximumDigits(_:)` | Modifies the maximum number of digits the text field allows.
-🇦🇶 | `.showFlag(_:)` | Modifies whether the text field shows the country flag on the left.
-🇸🇮 | `.isFlagSelectable(_:)` | Modifies whether the flag is selectable.
-➕ | `.showPrefix(_:)` | Modifies whether the country code prefix should be shown. Note: prefix will only be shown if using a default placeholder. 
+🇦🇶 | `.flagHidden(_:)` | Modifies whether the text field hides the country flag on the left.
+🇸🇮 | `.flagSelectable(_:)` | Modifies whether the flag is selectable.
+➕ | `.prefixHidden(_:)` | Modifies whether the country code prefix should be hidden. Note: prefix will only be shown if using the default placeholder (`placeholder = nil`). 
 ✋ | `.disabled(_:)` | Modifies whether the text field is **disabled**.
-▶️ | `.onBeginEditing(perform: { code })` | Modifies the function called when text editing **begins**.
-💬 | `.onPhoneNumberChange(perform: { code })` | Modifies the function called when the user makes any **changes** to the text in the text field.
-💬 | `.onEditingChange(perform: { code })` | Modifies the function called when the user makes any **changes** to the text in the text field.
-🔚 | `.onEndEditing(perform: ({ code })` | Modifies the function called when text editing **ends**.
+▶️ | `.onEditingBegan(perform: { code })` | Modifies the function called when text editing **begins**.
+💬 | `.onNumberChange(perform: { code })` | Modifies the function called when the user makes any **changes** to the text in the text field.
+💬 | `.onEdit(perform: { code })` | Modifies the function called when the user makes any **changes** to the text in the text field.
+🔚 | `.onEditingEnded(perform: ({ code })` | Modifies the function called when text editing **ends**.
 🔘 | `.onClear(perform: { code })` | Modifies the function called when the user clears the text field.
 ↪️ | `.onReturn(perfom: { code })` | Modifies the function called when the user presses return.
 

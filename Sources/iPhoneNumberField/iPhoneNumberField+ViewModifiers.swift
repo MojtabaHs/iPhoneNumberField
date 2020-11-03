@@ -202,7 +202,7 @@ public extension iPhoneNumberField {
     /// Modifies the **clear-on-begin-editing** setting of a  text field. ❌▶️
     /// - Parameter shouldClear: Whether the text field should clear on editing beginning 📭🏁
     /// - Returns:  A text field with updated clear-on-begin-editing settings 🔁
-    func clearsOnBeginEditing(_ shouldClear: Bool) -> Self {
+    func clearsOnEditingBegan(_ shouldClear: Bool) -> Self {
         var view = self
         view.clearsOnBeginEditing = shouldClear
         return view
@@ -211,7 +211,7 @@ public extension iPhoneNumberField {
     /// Modifies the **clear-on-insertion** setting of a text field. 👆
     /// - Parameter shouldClear: Whether the text field should clear on insertion
     /// - Returns: A text field with updated clear-on-insertion settings
-    func clearsOnInsertion(_ shouldClear: Bool) -> Self {
+    func clearsOnInsert(_ shouldClear: Bool) -> Self {
         var view = self
         view.clearsOnInsertion = shouldClear
         return view
@@ -295,7 +295,7 @@ public extension iPhoneNumberField {
     /// Modifies the function called when the user makes any **changes** to the text in the text field. 💬
     /// - Parameter action: The action to perform. If `action` is `nil`, the call has no effect.
     /// - Returns: An updated text field using the desired function called when the user makes any changes to the text in the text field 🔄
-    func onNumberChanged(perform action: ((PhoneNumber?) -> ())? = nil) -> Self {
+    func onNumberChange(perform action: ((PhoneNumber?) -> ())? = nil) -> Self {
         var view = self
         if let action = action {
             view.onPhoneNumberChangeHandler = action
@@ -306,7 +306,7 @@ public extension iPhoneNumberField {
     /// Modifies the function called when the user makes any **changes** to the text in the text field. 💬
     /// - Parameter action: The action to perform. If `action` is `nil`, the call has no effect.
     /// - Returns: An updated text field using the desired function called when the user makes any changes to the text in the text field 🔄
-    func onEditingChanged(perform action: ((UIViewType) -> ())? = nil) -> Self {
+    func onEdit(perform action: ((UIViewType) -> ())? = nil) -> Self {
         var view = self
         if let action = action {
             view.onEditingChangeHandler = action
