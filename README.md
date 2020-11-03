@@ -51,8 +51,8 @@ struct ContentView: View {
 
 
 ## Examples
-### Flags 🇦🇶 ‼️
-<img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example2.gif">
+### Flags 🇦🇶
+<img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example2.gif" align="right">
 Show the flag, and make it selectable, so your users can find their region.
 
 ```swift
@@ -64,8 +64,8 @@ struct ContentView: View {
 
     var body: some View {
         iPhoneNumberField(text: $text)
-            .showFlag(true)
-            .isFlagSelectable(true)
+            .flagHidden(false)
+            .f qlagSelectable(true)
             .font(UIFont(size: 30, weight: .bold, design: .rounded))
             .padding()
     }
@@ -73,7 +73,7 @@ struct ContentView: View {
 ```
 
 
-### Focus and unfocus 🔍 ↕️
+### Focus and unfocus 🔍
 <img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example1.gif">
 Use `iPhoneNumberField`'s optional binding to programmatically change text field. 
 
@@ -93,7 +93,7 @@ struct ContentView: View {
 ```
 
 
-### Max custom style 🎀 🆒
+### Max custom style 🎀
 <img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example4.gif">
 Use our modifiers to create a fully customized field.
 
