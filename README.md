@@ -22,6 +22,13 @@
 	iPhoneNumberField("Phone", text: $text)
 ```
 
+
+<p align="center">
+    <img src="./Resources/showcase-pic.png" width="300" alt="CI" />
+</p>
+
+
+
 ## Get Started
 
 1. [Install](./INSTALL.md) `iPhoneNumberField`.
@@ -39,10 +46,6 @@ struct ContentView: View {
     }
 }
 ```
-
-<p align="center">
-    <img src="./Resources/showcase-pic.png" width="300" alt="CI" />
-</p>
 
 3. Customize your `iPhoneNumberField`
 
