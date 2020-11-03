@@ -9,12 +9,10 @@
 import AppKit
 public typealias NativeFont = NSFont
 public typealias NativeFontDescriptor = NSFontDescriptor
-
 #elseif os(iOS)
 import UIKit
 public typealias NativeFont = UIFont
 public typealias NativeFontDescriptor = UIFontDescriptor
-
 #endif
 
 public extension NativeFont {
