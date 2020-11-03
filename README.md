@@ -44,27 +44,7 @@ struct ContentView: View {
 
 
 ## Examples
-### Example 1
-<img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example1.gif">
-Use `iPhoneNumberField`'s optional binding to programmatically change text field. 
-
-```swift
-import SwiftUI
-import iPhoneNumberField
-
-struct ContentView: View {
-    @State var text = ""
-
-    var body: some View {
-        iPhoneNumberField(text: $text)
-            .font(UIFont(size: 24, weight: .light, design: .monospaced))
-            .padding()
-    }
-}
-```
-
-
-### Example 2
+### Flags 🇦🇶 ‼️
 <img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example2.gif">
 Show the flag, and make it selectable, so your users can find their region.
 
@@ -86,7 +66,27 @@ struct ContentView: View {
 ```
 
 
-### Example 3
+### Focus and unfocus 🔍 ↕️
+<img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example1.gif">
+Use `iPhoneNumberField`'s optional binding to programmatically change text field. 
+
+```swift
+import SwiftUI
+import iPhoneNumberField
+
+struct ContentView: View {
+    @State var text = ""
+
+    var body: some View {
+        iPhoneNumberField(text: $text)
+            .font(UIFont(size: 24, weight: .light, design: .monospaced))
+            .padding()
+    }
+}
+```
+
+
+### Max custom style 🎀 🆒
 <img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example4.gif">
 Use our modifiers to create a fully customized field.
 
@@ -118,6 +118,7 @@ struct ContentView: View {
     }
 }
 ```
+
 
 ## Customize
 `iPhoneNumberField` takes 2 required parameters: 1️⃣ a `String` placeholder, and 2️⃣ a binding to a phone number string. All customizations are built into our modifiers.
@@ -181,7 +182,7 @@ You can use the Swift package manager to install `iPhoneNumberField`. Find instr
 ## Help
 If you have any questions about iPhoneNumberField, we are available 24/7 to help.
 
-| | Reach us at | ---
+| | Reach us at | -
 --- | --- | ---
 📞 | +1 (619) 876-0252 | **Call**
 📧 | hello@iswiftui.com | **Email**
