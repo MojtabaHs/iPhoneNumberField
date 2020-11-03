@@ -57,6 +57,9 @@ public struct iPhoneNumberField: UIViewRepresentable {
     /// Automatically fill the country code.
     internal var autofillPrefix: Bool = false
 
+    /// Change the default prefix number by setting the region.
+    internal var defaultRegion: String = "US"
+
     /// The text color of the textField.
     internal var textColor: UIColor?
     
@@ -124,6 +127,7 @@ public struct iPhoneNumberField: UIViewRepresentable {
                          for: .editingChanged)
         uiView.delegate = context.coordinator
         uiView.withExamplePlaceholder = placeholder == nil
+        uiView.partialFormatter.defaultRegion = defaultRegion
         
         return uiView
     }
@@ -142,6 +146,7 @@ public struct iPhoneNumberField: UIViewRepresentable {
         uiView.withDefaultPickerUI = selectableFlag
         uiView.withPrefix = autofillPrefix
         uiView.tintColor = accentColor
+        uiView.partialFormatter.defaultRegion = defaultRegion
 
         if let numberPlaceholderColor = numberPlaceholderColor {
             uiView.numberPlaceholderColor = numberPlaceholderColor

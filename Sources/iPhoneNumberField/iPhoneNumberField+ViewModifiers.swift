@@ -266,9 +266,20 @@ public extension iPhoneNumberField {
     /// Modifies whether the country code prefix should be shown. ➕1️⃣
     /// - Parameter showPrefix: Whether the country code prefix should be shown.
     /// - Returns: A text field with the updated prefix settings.
+    /// - Note: Use `defaultRegion` modifier to change the default prefix.
     func showPrefix(_ showPrefix: Bool) -> Self {
         var view = self
         view.autofillPrefix = showPrefix
+        return view
+    }
+
+    /// Modifies the default prefix of the number. ➕9️⃣8️⃣
+    /// - Parameter region: The region that the textField uses to show the default number prefix. Defaulted to US (+1)
+    /// - Returns: A text field with the updated prefix settings.
+    /// - Note: Use `showPrefix` modifier to change prefix visibility.
+    func defaultRegion(_ region: String) -> Self {
+        var view = self
+        view.defaultRegion = region
         return view
     }
     
