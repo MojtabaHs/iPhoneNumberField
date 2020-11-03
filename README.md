@@ -126,8 +126,7 @@ struct ContentView: View {
     @State var isEditing: Bool = false
 
     var body: some View {
-        iPhoneNumberField("(000) 000-0000", text: $text,
-                          isEditing: $isEditing)
+        iPhoneNumberField("(000) 000-0000", text: $text, isEditing: $isEditing)
             .flagHidden(false)
             .flagSelectable(true)
             .font(UIFont(size: 30, weight: .light, design: .monospaced))
