@@ -67,7 +67,7 @@ struct ContentView: View {
     var body: some View {
         iPhoneNumberField(text: $text)
             .flagHidden(false)
-            .f qlagSelectable(true)
+            .flagSelectable(true)
             .font(UIFont(size: 30, weight: .bold, design: .rounded))
             .padding()
     }
@@ -218,7 +218,7 @@ As always, if you have any questions about iPhoneNumberField, we are available 2
 
 <div align="center">
 
-| | Reach us at | -
+| | Reach us at | |
 --- | --- | ---
 📞 | +1 (619) 876-0252 | **Call**
 📧 | hello@iswiftui.com | **Email**
