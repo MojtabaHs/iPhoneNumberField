@@ -178,6 +178,13 @@ Use our exhaustive input list to customize your view.
 ## Install
 You can use the Swift package manager to install `iPhoneNumberField`. Find instructions [here](./INSTALL.md)
 
+## Help
+If you have any questions about iPhoneNumberField, we have 24/7 support available to help.
+
+📞 | Call | +1 (619) 876-0252
+📧 | Email | hello@iswiftui.com
+📲 | Text | +1 (619) 876-0252
+
 ## Usage
 iPhoneNumberField is distributed under a GNU GPL open-source license. 
 
