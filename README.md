@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-    <img src="./Resources/demo-alt.gif" alt="CI" />
+    <img src="./Resources/demo-pink.gif" alt="CI" />
 </p>
 
 <br />
