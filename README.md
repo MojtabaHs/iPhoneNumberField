@@ -179,7 +179,7 @@ Use our exhaustive input list to customize your view.
 You can use the Swift package manager to install `iPhoneNumberField`. Find instructions [here](./INSTALL.md)
 
 ## Help
-If you have any questions about iPhoneNumberField, we have 24/7 support available to help.
+If you have any questions about iPhoneNumberField, we are available 24/7 to help.
 
 | | Reach us at | ---
 --- | --- | ---
@@ -188,12 +188,10 @@ If you have any questions about iPhoneNumberField, we have 24/7 support availabl
 📲 | +1 (619) 876-0252 | **Text**
 
 ## Usage
-iPhoneNumberField is distributed under a GNU GPL open-source license. 
-
-### For individuals
 <b>iPhoneNumberField is FREE and open-source for individuals, and will remain that way forever.</b>
 
-### For business
+iPhoneNumberField is distributed under a GNU GPL open-source license. 
+
 Commercial friends, please note, this license is <b><a href="https://en.wikipedia.org/wiki/GNU_General_Public_License#Legal_barrier_to_app_stores">incompatible with many commercial applications</a></b>. If your app is distributed for commercial use, it could violate this open-source license even if "the app is free in the App Store."
 
 In order to offer iPhoneNumberField safely to our commercial friends, we made it super easy to purchase a lifetime full-use license for only $0.99. Code on worry free 😁.
