@@ -181,7 +181,7 @@ You can use the Swift package manager to install `iPhoneNumberField`. Find instr
 ## Help
 If you have any questions about iPhoneNumberField, we have 24/7 support available to help.
 
-| | Reach us at |
+| | Reach us at | ---
 --- | --- | ---
 📞 | +1 (619) 876-0252 | **Call**
 📧 | hello@iswiftui.com | **Email**
