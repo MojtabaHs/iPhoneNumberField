@@ -215,7 +215,7 @@ Use our exhaustive input list to customize your view.
 You can use the Swift package manager to install `iPhoneNumberField`. Find instructions [here](./INSTALL.md)
 
 ## Help
-If you have any questions about iPhoneNumberField, we are available 24/7 to help.
+As always, if you have any questions about iPhoneNumberField, we are available 24/7 to help.
 
 <div align="center">
 
