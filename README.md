@@ -41,7 +41,7 @@ struct ContentView: View {
 ```
 
 <p align="center">
-    <img src="./Resources/showcase-pic.png" alt="CI" />
+    <img src="./Resources/showcase-pic.png" width="300" alt="CI" />
 </p>
 
 3. Customize your `iPhoneNumberField`
