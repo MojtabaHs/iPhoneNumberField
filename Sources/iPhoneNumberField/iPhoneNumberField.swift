@@ -13,18 +13,23 @@
 import SwiftUI
 import PhoneNumberKit
 
-// MARK: - Usage:
+/// A text field view representable structure that formats the user's phone number as they type.
 public struct iPhoneNumberField: UIViewRepresentable {
-    /// The actual text of the textField. It's includes the extra formatting characters.
+    
+    /// The formatted phone number `String`.
+    /// This variable writes to the binding provided in the initializer.
     @Binding public var text: String
 
-    /// The controlling variable of the first responder.
+    /// Whether or not the phone number field is editing.
+    /// This variable is `nil` unless the user passes in an `isEditing` binding.
     private var externalIsFirstResponder: Binding<Bool>?
 
-    /// Internal state of being first responder in case of external `externalIsFirstResponder` not provided.
+    /// Whether or not the phone number field is editing.
+    /// This variable is used only if an `isEditing` binding was not provided in the initializer.
     @State private var internalIsFirstResponder: Bool = false
 
-    /// Auto switcher between internal and external firstResponder manager.
+    /// Whether or not the phone number field is editing. 💬
+    /// This variable uses `externalIsFirstResponder` binding variable if an `isEditing` binding was provided in the initializer, otherwise it uses the `internalIsFirstResponder` state variable.
     private var isFirstResponder: Bool {
         get { externalIsFirstResponder?.wrappedValue ?? internalIsFirstResponder }
         set {
@@ -36,80 +41,90 @@ public struct iPhoneNumberField: UIViewRepresentable {
         }
     }
 
-    /// The maximum number of accepting digits.
+    /// The maximum number of digits the phone number field allows. 🔢
     internal var maxDigits: Int?
 
-    /// The font of the textField.
+    /// The font of the phone number field. 🔡
     internal var font: UIFont?
 
-    /// The mode of the clear button.
+    /// The phone number field's "clear button" mode. 🚫
     internal var clearButtonMode: UITextField.ViewMode = .never
 
-    /// The text of the placeholder, setting it `nil` will show default number example as the placeholder.
+    /// The text displayed in the phone number field when no number has been typed yet.
+    /// Setting this `nil` will display a default phone number as the placeholder.
     private let placeholder: String?
 
-    /// Show the country flag
+    /// Whether the country flag should be displayed in the phone number field. 🇦🇶
     internal var showFlag: Bool = false
 
-    /// Show a full list of countries on tap of the  flag.
+    /// Whether tapping the flag should show a sheet containing all of the country flags. 🏴‍☠️
     internal var selectableFlag: Bool = false
 
-    /// Automatically fill the country code.
+    /// Whether the country code should be automatically displayed for the end user. ➕
     internal var autofillPrefix: Bool = false
 
-    /// The text color of the textField.
+    /// The color of the text of the phone number field. 🎨
     internal var textColor: UIColor?
     
-    /// The color of the text field's cursor and highlighting.
+    /// The color of the phone number field's cursor and highlighting. 🖍
     internal var accentColor: UIColor?
 
-    /// The number part of the placeholder color.
+    /// The color of the number (excluding country code) portion of the placeholder.
     internal var numberPlaceholderColor: UIColor?
 
-    /// The country code part of the placeholder color.
+    /// The color of the country code portion of the placeholder color.
     internal var countryCodePlaceholderColor: UIColor?
 
-    /// The style of the `UITextField`.
+    /// The visual style of the phone number field. 🎀
+    /// For now, this uses `UITextField.BorderStyle`. Updates on this modifier to come.
     internal var borderStyle: UITextField.BorderStyle = .none
 
-    /// The textField invokes this closure when it became the first responder.
+    /// An action to perform when editing on the phone number field begins. ▶️
+    /// The closure requiers a `PhoneNumberTextField` paramater, which is the underlying `UIView`, that you can change each time this is called, if desired.
     internal var onBeginEditingHandler = { (view: PhoneNumberTextField) in }
 
-    /// The textField invokes this closure when it changes.
+    /// An action to perform when any characters in the phone number field are changed. 💬
+    /// The closure requiers a `PhoneNumberTextField` paramater, which is the underlying `UIView`, that you can change each time this is called, if desired.
     internal var onEditingChangeHandler = { (view: PhoneNumberTextField) in }
 
-    /// The textField invokes this closure when the containing number changes.
+    /// An action to perform when any characters in the phone number field are changed. ☎️
+    /// The closure requiers a `PhoneNumber` paramater, that you can change each time this is called, if desired.
     internal var onPhoneNumberChangeHandler = { (phoneNumber: PhoneNumber?) in }
 
-    /// The textField invokes this closure when it resign the first responder.
+    /// An action to perform when editing on the phone number field ends. ⏹
+    /// The closure requiers a `PhoneNumberTextField` paramater, which is the underlying `UIView`, that you can change each time this is called, if desired.
     internal var onEndEditingHandler = { (view: PhoneNumberTextField) in }
     
+    /// An action to perform when the phone number field is cleared. ❌
+    /// The closure requiers a `PhoneNumberTextField` paramater, which is the underlying `UIView`, that you can change each time this is called, if desired.
     internal var onClearHandler = { (view: PhoneNumberTextField) in }
     
+    /// An action to perform when the return key on the phone number field is pressed. ↪️
+    /// The closure requiers a `PhoneNumberTextField` paramater, which is the underlying `UIView`, that you can change each time this is called, if desired.
     internal var onReturnHandler = { (view: PhoneNumberTextField) in }
 
-    /// Access all properties of the original UIView.
+    /// A closure that requires a `PhoneNumberTextField` object to be configured in the body. ⚙️
     public var configuration = { (view: PhoneNumberTextField) in }
     
-    /// The alignment of the textField.
     @Environment(\.layoutDirection) internal var layoutDirection: LayoutDirection
+    /// The horizontal alignment of the phone number field.
     internal var textAlignment: NSTextAlignment?
     
-    /// Whether the textField clears on begin editing.
+    /// Whether the phone number field clears when editing begins. 🎬
     internal var clearsOnBeginEditing = false
     
-    /// Whether the textField clears on insertion.
+    /// Whether the phone number field clears when text is inserted. 👆
     internal var clearsOnInsertion = false
     
-    /// Whether the user can interact with the textField
+    /// Whether the phone number field is enabled for interaction. ✅
     internal var isUserInteractionEnabled = true
 
-    public init(_ placeholder: String? = nil,
+    public init(_ title: String? = nil,
                 text: Binding<String>,
                 isEditing: Binding<Bool>? = nil,
                 configuration: @escaping (UIViewType) -> () = { _ in } ) {
 
-        self.placeholder = placeholder
+        self.placeholder = title
         self.externalIsFirstResponder = isEditing
         self._text = text
         self.configuration = configuration
@@ -178,9 +193,8 @@ public struct iPhoneNumberField: UIViewRepresentable {
             onEditingChange: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in },
             onEndEditing: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in },
             onClear: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in },
-            onReturn: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in }
-        ) {
-
+            onReturn: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in } )
+        {
             self.text = text
             self.isFirstResponder = isFirstResponder
             self.onBeginEditing = onBeginEditing
