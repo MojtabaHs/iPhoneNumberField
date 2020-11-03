@@ -52,7 +52,9 @@ struct ContentView: View {
 
 ## Examples
 ### Flags 🇦🇶
-<img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example2.gif" align="right">
+
+<img align="right" src="/Resources/example-1.gif" width="250">
+
 Show the flag, and make it selectable, so your users can find their region.
 
 ```swift
@@ -72,29 +74,47 @@ struct ContentView: View {
 }
 ```
 
+<br clear="right"/>
+<br/>
 
-### Focus and unfocus 🔍
-<img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example1.gif">
-Use `iPhoneNumberField`'s optional binding to programmatically change text field. 
+<h3 align="left">Focus and unfocus 🔍</h3>
+<p align="left">Use iPhoneNumberField's optional binding to programmatically change text field.</p>
+
+<img align="left" src="/Resources/example-2.gif" width="250">
 
 ```swift
 import SwiftUI
+import iTextField
 import iPhoneNumberField
 
 struct ContentView: View {
-    @State var text = ""
+    @State var nameText = ""
+    @State var phoneText = ""
+    @State var phoneEditing = false
 
     var body: some View {
-        iPhoneNumberField(text: $text)
-            .font(UIFont(size: 24, weight: .light, design: .monospaced))
-            .padding()
+        VStack {
+            iTextField("Name", text: $nameText)
+                .font(UIFont(size: 24, weight: .light, design: .monospaced))
+                .padding()
+                .onReturn { phoneEditing = true }
+            iPhoneNumberField("Phone", text: $phoneText,
+                              isEditing: $phoneEditing)
+                .font(UIFont(size: 24, weight: .light, design: .monospaced))
+                .padding()
+        }
     }
 }
 ```
 
+<br clear="left"/>
+<br/>
+<br/>
 
-### Max custom style 🎀
-<img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example4.gif">
+### Custom style 🎀
+
+<img align="right" src="/Resources/example-3.gif" width="250">
+
 Use our modifiers to create a fully customized field.
 
 ```swift
@@ -106,26 +126,28 @@ struct ContentView: View {
     @State var isEditing: Bool = false
 
     var body: some View {
-        iPhoneNumberField("(000) 000-0000", text: $text, isEditing: $isEditing)
-            .showFlag(true)
-            .isFlagSelectable(true)
+        iPhoneNumberField("(000) 000-0000", text: $text,
+                          isEditing: $isEditing)
+            .flagHidden(false)
+            .flagSelectable(true)
             .font(UIFont(size: 30, weight: .light, design: .monospaced))
             .maximumDigits(10)
-            .foregroundColor(Color.neonPink)
+            .foregroundColor(Color.pink)
             .clearButtonMode(.whileEditing)
-            .onClear { _ in
-                self.isEditing.toggle()
-            }
-            .accentColor(Color.neonOrange)
+            .onClear { _ in isEditing.toggle() }
+            .accentColor(Color.orange)
             .padding()
-            .background(Color(hue: 0, saturation: 0, brightness: 95, opacity: 1.0))
+            .background(Color.white)
             .cornerRadius(10)
-            .shadow(color: ((self.isEditing) ? .lightGray : .white), radius: 10)
+            .shadow(color: isEditing ? .lightGray : .white, radius: 10)
             .padding()
     }
 }
 ```
 
+<br clear="right"/>
+<br/>
+<br/>
 
 ## Customize
 `iPhoneNumberField` takes 2 required parameters: 1️⃣ a `String` placeholder, and 2️⃣ a binding to a phone number string. All customizations are built into our modifiers.
@@ -140,6 +162,7 @@ iPhoneNumberField("", text: $text)
 ```
 Use our exhaustive input list to customize your view.
 
+<div align="center">
 
 | | Modifier | Description
 --- | --- | ---
@@ -167,7 +190,11 @@ Use our exhaustive input list to customize your view.
 🔘 | `.onClear(perform: { code })` | Modifies the function called when the user clears the text field.
 ↪️ | `.onReturn(perfom: { code })` | Modifies the function called when the user presses return.
 
+</div>
+
 ##  Features
+
+<div align="center">
 
 | |Features |
 --------------------------|------------------------------------------------------------
@@ -182,6 +209,8 @@ Use our exhaustive input list to customize your view.
 🔍 | Searchable and customizable country code and name list
 ∞ | Many more features to discover
 
+</div>
+
 
 ## Install
 You can use the Swift package manager to install `iPhoneNumberField`. Find instructions [here](./INSTALL.md)
@@ -189,11 +218,15 @@ You can use the Swift package manager to install `iPhoneNumberField`. Find instr
 ## Help
 If you have any questions about iPhoneNumberField, we are available 24/7 to help.
 
+<div align="center">
+
 | | Reach us at | -
 --- | --- | ---
 📞 | +1 (619) 876-0252 | **Call**
 📧 | hello@iswiftui.com | **Email**
 📲 | +1 (619) 876-0252 | **Text**
+
+</div>
 
 ## Usage
 <b>iPhoneNumberField is FREE and open-source for individuals, and will remain that way forever.</b>
