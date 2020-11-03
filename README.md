@@ -98,8 +98,7 @@ struct ContentView: View {
                 .font(UIFont(size: 24, weight: .light, design: .monospaced))
                 .padding()
                 .onReturn { phoneEditing = true }
-            iPhoneNumberField("Phone", text: $phoneText,
-                              isEditing: $phoneEditing)
+            iPhoneNumberField("Phone", text: $phoneText, isEditing: $phoneEditing)
                 .font(UIFont(size: 24, weight: .light, design: .monospaced))
                 .padding()
         }
