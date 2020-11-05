@@ -218,11 +218,11 @@ As always, if you have any questions about iPhoneNumberField, we are available 2
 
 <div align="center">
 
-| | Reach us at | |
+| | :Reach us at: | |
 --- | --- | ---
-📞 | +1 (415) 735-4464 | **Call**
-📧 | hello@iswiftui.com | **Email**
-📲 | +1 (415) 735-4464 | **Text**
+📞 | :+1 (415) 735-4464: | :**Call**:
+📧 | :hello@iswiftui.com: | :**Email**:
+📲 | :+1 (415) 735-4464: | :**Text**:
 
 </div>
 
