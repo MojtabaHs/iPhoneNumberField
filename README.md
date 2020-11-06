@@ -1,5 +1,5 @@
 <h1 align="center"> iPhoneNumberField ☎️</p>
-<h3 align="center">Format phone numbers as they're typed.</h3>
+<h3 align="center">Format phone numbers as they're typed—entirely in <span style="text-decoration: underline;">SwiftUI</span>. 📱</h3>
 <!-- <p align="center">(entirely in SwiftUI!)</p>
  -->
 <p align="center">
@@ -12,19 +12,26 @@
 </p>
 
 <p align="center">
-    <img src="./Resources/demo-alt.gif" alt="CI" />
+    <img src="./Resources/demo-pink.gif" alt="CI" />
 </p>
 
 <br />
 
 ## And it's as easy as
 ```swift
-	iPhoneNumberField("Phone", text: $text)
+iPhoneNumberField("Phone", text: $text)
 ```
+
+
+<p align="center">
+    <img src="./Resources/showcase-pic.png" width="300" alt="CI" />
+</p>
+
+
 
 ## Get Started
 
-1. [Install](./blob/main/INSTALL.md) `iPhoneNumberField`.
+1. [Install](./INSTALL.md) `iPhoneNumberField`.
 
 2. Add `iPhoneNumberField` to your project.
 ```swift
@@ -44,28 +51,10 @@ struct ContentView: View {
 
 
 ## Examples
-### Example 1
-<img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example1.gif">
-Use `iPhoneNumberField`'s optional binding to programmatically change text field. 
+### Flags 🇦🇶
 
-```swift
-import SwiftUI
-import iPhoneNumberField
+<img align="right" src="/Resources/example-1.gif" width="250">
 
-struct ContentView: View {
-    @State var text = ""
-
-    var body: some View {
-        iPhoneNumberField(text: $text)
-            .font(UIFont(size: 24, weight: .light, design: .monospaced))
-            .padding()
-    }
-}
-```
-
-
-### Example 2
-<img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example2.gif">
 Show the flag, and make it selectable, so your users can find their region.
 
 ```swift
@@ -77,17 +66,54 @@ struct ContentView: View {
 
     var body: some View {
         iPhoneNumberField(text: $text)
-            .showFlag(true)
-            .isFlagSelectable(true)
+            .flagHidden(false)
+            .flagSelectable(true)
             .font(UIFont(size: 30, weight: .bold, design: .rounded))
             .padding()
     }
 }
 ```
 
+<br clear="right"/>
+<br/>
 
-### Example 3
-<img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/PhoneTextField/Example4.gif">
+<h3 align="left">Focus and unfocus 🔍</h3>
+<p align="left">Use iPhoneNumberField's optional binding to programmatically change text field.</p>
+
+<img align="left" src="/Resources/example-2.gif" width="250">
+
+```swift
+import SwiftUI
+import iTextField
+import iPhoneNumberField
+
+struct ContentView: View {
+    @State var nameText = ""
+    @State var phoneText = ""
+    @State var phoneEditing = false
+
+    var body: some View {
+        VStack {
+            iTextField("Name", text: $nameText)
+                .font(UIFont(size: 24, weight: .light, design: .monospaced))
+                .padding()
+                .onReturn { phoneEditing = true }
+            iPhoneNumberField("Phone", text: $phoneText, isEditing: $phoneEditing)
+                .font(UIFont(size: 24, weight: .light, design: .monospaced))
+                .padding()
+        }
+    }
+}
+```
+
+<br clear="left"/>
+<br/>
+<br/>
+
+### Custom style 🎀
+
+<img align="right" src="/Resources/example-3.gif" width="250">
+
 Use our modifiers to create a fully customized field.
 
 ```swift
@@ -100,24 +126,26 @@ struct ContentView: View {
 
     var body: some View {
         iPhoneNumberField("(000) 000-0000", text: $text, isEditing: $isEditing)
-            .showFlag(true)
-            .isFlagSelectable(true)
+            .flagHidden(false)
+            .flagSelectable(true)
             .font(UIFont(size: 30, weight: .light, design: .monospaced))
             .maximumDigits(10)
-            .foregroundColor(Color.neonPink)
+            .foregroundColor(Color.pink)
             .clearButtonMode(.whileEditing)
-            .onClear { _ in
-                self.isEditing.toggle()
-            }
-            .accentColor(Color.neonOrange)
+            .onClear { _ in isEditing.toggle() }
+            .accentColor(Color.orange)
             .padding()
-            .background(Color(hue: 0, saturation: 0, brightness: 95, opacity: 1.0))
+            .background(Color.white)
             .cornerRadius(10)
-            .shadow(color: ((self.isEditing) ? .lightGray : .white), radius: 10)
+            .shadow(color: isEditing ? .lightGray : .white, radius: 10)
             .padding()
     }
 }
 ```
+
+<br clear="right"/>
+<br/>
+<br/>
 
 ## Customize
 `iPhoneNumberField` takes 2 required parameters: 1️⃣ a `String` placeholder, and 2️⃣ a binding to a phone number string. All customizations are built into our modifiers.
@@ -132,6 +160,7 @@ iPhoneNumberField("", text: $text)
 ```
 Use our exhaustive input list to customize your view.
 
+<div align="center">
 
 | | Modifier | Description
 --- | --- | ---
@@ -143,23 +172,27 @@ Use our exhaustive input list to customize your view.
 🐠 | `.countryCodePlaceholderColor(_:)` | Modifies <i>solely</i> the **country code placeholder color** of the text field – without the phone number.
 ↔️ | `.multilineTextAlignment(_:)` | Modifies the **text alignment** of a text field.
 ☎️ | `.textContentType(_:)` | Modifies the **content type** of a text field for implied formatting. 
-▶️ | `.clearsOnBeginEditing(_:)` | Modifies the **clear-on-begin-editing** setting of a  text field.
-👆 | `.clearsOnInsertion(_:)` | Modifies the **clear-on-insertion** setting of a text field.
+▶️ | `.clearsOnEditingBegan(_:)` | Modifies the **clear-on-begin-editing** setting of a  text field.
+👆 | `.clearsOnInsert(_:)` | Modifies the **clear-on-insertion** setting of a text field.
 ❌ | `.clearButtonMode(_:)` | Modifies whether and when the text field **clear button** appears on the view.
 ☑️ | `.textFieldStyle(_:)` | Modifies the style of the text field to one of Apple's three pre-designed styles.
 🔟 | `.maximumDigits(_:)` | Modifies the maximum number of digits the text field allows.
-🇦🇶 | `.showFlag(_:)` | Modifies whether the text field shows the country flag on the left.
-🇸🇮 | `.isFlagSelectable(_:)` | Modifies whether the flag is selectable.
-➕ | `.showPrefix(_:)` | Modifies whether the country code prefix should be shown. Note: prefix will only be shown if using a default placeholder. 
+🇦🇶 | `.flagHidden(_:)` | Modifies whether the text field hides the country flag on the left.
+🇸🇮 | `.flagSelectable(_:)` | Modifies whether the flag is selectable.
+➕ | `.prefixHidden(_:)` | Modifies whether the country code prefix should be hidden. Note: prefix will only be shown if using the default placeholder (`placeholder = nil`). 
 ✋ | `.disabled(_:)` | Modifies whether the text field is **disabled**.
-▶️ | `.onBeginEditing(perform: { code })` | Modifies the function called when text editing **begins**.
-💬 | `.onPhoneNumberChange(perform: { code })` | Modifies the function called when the user makes any **changes** to the text in the text field.
-💬 | `.onEditingChange(perform: { code })` | Modifies the function called when the user makes any **changes** to the text in the text field.
-🔚 | `.onEndEditing(perform: ({ code })` | Modifies the function called when text editing **ends**.
+▶️ | `.onEditingBegan(perform: { code })` | Modifies the function called when text editing **begins**.
+💬 | `.onNumberChange(perform: { code })` | Modifies the function called when the user makes any **changes** to the text in the text field.
+💬 | `.onEdit(perform: { code })` | Modifies the function called when the user makes any **changes** to the text in the text field.
+🔚 | `.onEditingEnded(perform: ({ code })` | Modifies the function called when text editing **ends**.
 🔘 | `.onClear(perform: { code })` | Modifies the function called when the user clears the text field.
 ↪️ | `.onReturn(perfom: { code })` | Modifies the function called when the user presses return.
 
+</div>
+
 ##  Features
+
+<div align="center">
 
 | |Features |
 --------------------------|------------------------------------------------------------
@@ -174,21 +207,39 @@ Use our exhaustive input list to customize your view.
 🔍 | Searchable and customizable country code and name list
 ∞ | Many more features to discover
 
+</div>
+
 
 ## Install
-You can use the Swift package manager to install `iPhoneNumberField`.
+
+You can use the Swift package manager to install `iPhoneNumberField`. Find Xcode SPM instructions [here](./INSTALL.md)
+
 ```
 dependencies: [
     .package(url: "https://github.com/MojtabaHs/iPhoneNumberField.git", .upToNextMajor(from: "0.5.0"))
 ]
 ```
 
+## Help
+As always, if you have any questions about iPhoneNumberField, we are available 24/7 to help.
+
+<div align="center">
+
+| | Reach us at | |
+--- |:---:|:---:
+📞 | +1 (415) 735-4464 | **Call**
+📧 | hello@iswiftui.com | **Email**
+📲 | +1 (415) 735-4464 | **Text**
+
+</div>
+
 ## Usage
-<b>`iPhoneNumberField`is FREE and open-source for individuals, and will remain that way forever.</b>
+<b>iPhoneNumberField is FREE and open-source for individuals, and will remain that way forever.</b>
 
-`iPhoneNumberField` is distributed under a GNU GPL open source license. 
+iPhoneNumberField is distributed under a GNU GPL open-source license. [See the licence](./LICENSE)
 
-Commercial friends, please note, this license is <b><a href="https://en.wikipedia.org/wiki/GNU_General_Public_License#Legal_barrier_to_app_stores">incompatible with many commercial applications</a></b>. If your end product may make money, licenses are available for only $0.99.
+Commercial friends, please note, this license is <b><a href="https://en.wikipedia.org/wiki/GNU_General_Public_License#Legal_barrier_to_app_stores">incompatible with many commercial applications</a></b>. If your app is distributed for commercial use, it could violate this open-source license even if "the app is free in the App Store."
+
+In order to offer iPhoneNumberField safely to our commercial friends, we made it super easy to purchase a lifetime full-use license for only $0.99. Code on worry free 😁.
 
 <p align="center"><a href="https://general099748.typeform.com/to/p5FtTKBj"> <img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/Purchase%20License.png" width="300"> </a> </p>
-

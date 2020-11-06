@@ -202,7 +202,7 @@ public extension iPhoneNumberField {
     /// Modifies the **clear-on-begin-editing** setting of a  text field. ❌▶️
     /// - Parameter shouldClear: Whether the text field should clear on editing beginning 📭🏁
     /// - Returns:  A text field with updated clear-on-begin-editing settings 🔁
-    func clearsOnBeginEditing(_ shouldClear: Bool) -> Self {
+    func clearsOnEditingBegan(_ shouldClear: Bool) -> Self {
         var view = self
         view.clearsOnBeginEditing = shouldClear
         return view
@@ -211,7 +211,7 @@ public extension iPhoneNumberField {
     /// Modifies the **clear-on-insertion** setting of a text field. 👆
     /// - Parameter shouldClear: Whether the text field should clear on insertion
     /// - Returns: A text field with updated clear-on-insertion settings
-    func clearsOnInsertion(_ shouldClear: Bool) -> Self {
+    func clearsOnInsert(_ shouldClear: Bool) -> Self {
         var view = self
         view.clearsOnInsertion = shouldClear
         return view
@@ -244,32 +244,31 @@ public extension iPhoneNumberField {
         return view
     }
     
-    /// Modifies whether the text field shows the country flag on the left. 🇦🇶
-    /// - Parameter showFlag: Whether the text field shows the flag.
+    /// Modifies whether the text field hides the country flag on the left. 🇦🇶
+    /// - Parameter hidden: Whether the text field hides the flag.
     /// - Returns: A text field with the updated flag visibility.
-    func showFlag(_ showFlag: Bool) -> Self {
+    func flagHidden(_ hidden: Bool) -> Self {
         var view = self
-        view.showFlag = showFlag
+        view.showFlag = !hidden
         return view
     }
     
-    /// Modifies whether the flag is selectable 🇸🇮.
+    /// Modifies whether the flag is selectable. 🇸🇮
     /// When set to `true`, tapping on the flag will pull up a sheet allowing the user to select a flag.
-    /// - Parameter isFlagSelectable: Whether the flag is selectable.
+    /// - Parameter selectable: Whether the flag is selectable.
     /// - Returns: A text field with the updated flag-selectability settings.
-    func isFlagSelectable(_ isFlagSelectable: Bool) -> Self {
+    func flagSelectable(_ selectable: Bool) -> Self {
         var view = self
-        view.selectableFlag = isFlagSelectable
+        view.selectableFlag = selectable
         return view
     }
     
-    /// Modifies whether the country code prefix should be shown. ➕1️⃣
-    /// - Parameter showPrefix: Whether the country code prefix should be shown.
+    /// Modifies whether the country code prefix should be hidden. ➕1️⃣
+    /// - Parameter hidden: Whether the country code prefix should be hidden.
     /// - Returns: A text field with the updated prefix settings.
-    /// - Note: Use `defaultRegion` modifier to change the default prefix.
-    func showPrefix(_ showPrefix: Bool) -> Self {
+    func prefixHidden(_ hidden: Bool) -> Self {
         var view = self
-        view.autofillPrefix = showPrefix
+        view.autofillPrefix = !hidden
         return view
     }
 
@@ -295,7 +294,7 @@ public extension iPhoneNumberField {
     /// Modifies the function called when text editing **begins**. ▶️
     /// - Parameter action: The action to perform. If `action` is `nil`, the call has no effect.
     /// - Returns: An updated text field using the desired function called when text editing begins ➡️
-    func onBeginEditing(perform action: ((UIViewType) -> ())? = nil) -> Self {
+    func onEditingBegan(perform action: ((UIViewType) -> ())? = nil) -> Self {
         var view = self
         if let action = action {
             view.onBeginEditingHandler = action
@@ -306,7 +305,7 @@ public extension iPhoneNumberField {
     /// Modifies the function called when the user makes any **changes** to the text in the text field. 💬
     /// - Parameter action: The action to perform. If `action` is `nil`, the call has no effect.
     /// - Returns: An updated text field using the desired function called when the user makes any changes to the text in the text field 🔄
-    func onPhoneNumberChange(perform action: ((PhoneNumber?) -> ())? = nil) -> Self {
+    func onNumberChange(perform action: ((PhoneNumber?) -> ())? = nil) -> Self {
         var view = self
         if let action = action {
             view.onPhoneNumberChangeHandler = action
@@ -317,7 +316,7 @@ public extension iPhoneNumberField {
     /// Modifies the function called when the user makes any **changes** to the text in the text field. 💬
     /// - Parameter action: The action to perform. If `action` is `nil`, the call has no effect.
     /// - Returns: An updated text field using the desired function called when the user makes any changes to the text in the text field 🔄
-    func onEditingChange(perform action: ((UIViewType) -> ())? = nil) -> Self {
+    func onEdit(perform action: ((UIViewType) -> ())? = nil) -> Self {
         var view = self
         if let action = action {
             view.onEditingChangeHandler = action
@@ -328,7 +327,7 @@ public extension iPhoneNumberField {
     /// Modifies the function called when text editing **ends**. 🔚
     /// - Parameter action: The action to perform. If `action` is `nil`, the call has no effect.
     /// - Returns: An updated text field using the desired function called when text editing ends ✋
-    func onEndEditing(perform action: ((UIViewType) -> ())? = nil) -> Self {
+    func onEditingEnded(perform action: ((UIViewType) -> ())? = nil) -> Self {
         var view = self
         if let action = action {
             view.onEndEditingHandler = action
@@ -358,9 +357,9 @@ public extension iPhoneNumberField {
         return view
     }
     
-    /// Our packages inherently voids the functionality of textContentType 🙃. As described by Apple 👩‍💻, "The textContentType property is designed to provide the keyboard with extra information about the semantic intent of the text document". However, in our case the semantic intent is always to write a phone number 😁☎
+    /// Our packages inherently voids the functionality of textContentType 🙃. As described by Apple 👩‍💻, "The textContentType property is designed to provide the keyboard with extra information about the semantic intent of the text document". However, in `iPhoneNumberField`'s case the semantic intent is always to write a phone number 😁☎
     /// - Parameter textContentType:
     /// - Returns: self
     @available(*, deprecated, message: "Our packages inherently voids the functionality of textContentType 🙃")
-    func textContentType(_ textContentType: UITextContentType?) -> some View { return EmptyView() }
+    func textContentType(_ textContentType: UITextContentType?) -> some View { return self }
 }

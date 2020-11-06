@@ -15,7 +15,6 @@ public typealias NativeFont = UIFont
 public typealias NativeFontDescriptor = UIFontDescriptor
 #endif
 
-
 public extension NativeFont {
     /// Initializes a `UIFont` using the same system initializer syntax available in `Font` 🔠🔡
         /// - Parameters:
