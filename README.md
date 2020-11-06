@@ -19,7 +19,7 @@
 
 ## And it's as easy as
 ```swift
-	iPhoneNumberField("Phone", text: $text)
+iPhoneNumberField("Phone", text: $text)
 ```
 
 
@@ -211,7 +211,14 @@ Use our exhaustive input list to customize your view.
 
 
 ## Install
-You can use the Swift package manager to install `iPhoneNumberField`. Find instructions [here](./INSTALL.md)
+
+You can use the Swift package manager to install `iPhoneNumberField`. Find Xcode SPM instructions [here](./INSTALL.md)
+
+```
+dependencies: [
+    .package(url: "https://github.com/MojtabaHs/iPhoneNumberField.git", .upToNextMajor(from: "0.5.0"))
+]
+```
 
 ## Help
 As always, if you have any questions about iPhoneNumberField, we are available 24/7 to help.
@@ -229,11 +236,10 @@ As always, if you have any questions about iPhoneNumberField, we are available 2
 ## Usage
 <b>iPhoneNumberField is FREE and open-source for individuals, and will remain that way forever.</b>
 
-iPhoneNumberField is distributed under a GNU GPL open-source license. 
+iPhoneNumberField is distributed under a GNU GPL open-source license. [See the licence](./LICENSE)
 
 Commercial friends, please note, this license is <b><a href="https://en.wikipedia.org/wiki/GNU_General_Public_License#Legal_barrier_to_app_stores">incompatible with many commercial applications</a></b>. If your app is distributed for commercial use, it could violate this open-source license even if "the app is free in the App Store."
 
 In order to offer iPhoneNumberField safely to our commercial friends, we made it super easy to purchase a lifetime full-use license for only $0.99. Code on worry free 😁.
 
 <p align="center"><a href="https://general099748.typeform.com/to/p5FtTKBj"> <img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/Purchase%20License.png" width="300"> </a> </p>
-
