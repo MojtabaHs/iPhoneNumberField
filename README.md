@@ -78,7 +78,7 @@ struct ContentView: View {
 <br/>
 
 <h3 align="left">Focus and unfocus 🔍</h3>
-<p align="left">Use iPhoneNumberField's optional binding to programmatically change text field.</p>
+<p align="left">Use iPhoneNumberField's optional binding and <a href="https://github.com/benjaminsage/iTextField"> iTextField</a> to programmatically change text field.</p>
 
 <img align="left" src="/Resources/example-2.gif" width="250">
 
