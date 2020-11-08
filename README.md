@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-    <img src="./Resources/demo-pink.gif" alt="CI" />
+    <img src="https://github.com/AlexFine/SwiftUICode/blob/master/ASSETS/gifygifytwo.gif" alt="CI" />
 </p>
 
 <br />
