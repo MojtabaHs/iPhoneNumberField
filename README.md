@@ -180,6 +180,7 @@ Use our exhaustive input list to customize your view.
 🇦🇶 | `.flagHidden(_:)` | Modifies whether the text field hides the country flag on the left 🇸🇪🇹🇼🇨🇬.
 🇸🇮 | `.flagSelectable(_:)` | Modifies whether the flag is selectable.
 ➕ | `.prefixHidden(_:)` | Modifies whether the country code prefix should be hidden. Note: prefix will only be shown if using the default placeholder (`placeholder = nil`). 
+📞 | `.formatted(_:)` | Modifies whether the binding you pass as the `text` parameter gets formatted.
 ✋ | `.disabled(_:)` | Modifies whether the text field is **disabled**.
 ▶️ | `.onEditingBegan(perform: { code })` | Modifies the function called when text editing **begins**.
 💬 | `.onNumberChange(perform: { code })` | Modifies the function called when the user makes any **changes** to the text in the text field.
