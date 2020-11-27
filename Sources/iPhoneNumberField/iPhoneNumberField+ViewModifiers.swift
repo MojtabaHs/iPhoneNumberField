@@ -357,6 +357,18 @@ public extension iPhoneNumberField {
         return view
     }
     
+    /// Modifies whether the `text` binding is formatted as the user types.
+    ///
+    /// If `false`, the binding `String` will remain empty until a valid phone number is detected.
+    /// Setting to `false` will also include the country code, even if it's not visible in the text field.
+    /// - Parameter formatted: Whether or not the `text` binding should be formatted.
+    /// - Returns: An updated text field using the desired formatting settings.
+    func formatted(_ formatted: Bool = true) -> Self {
+        var view = self
+        view.formatted = formatted
+        return view
+    }
+    
     /// Our packages inherently voids the functionality of textContentType 🙃. As described by Apple 👩‍💻, "The textContentType property is designed to provide the keyboard with extra information about the semantic intent of the text document". However, in `iPhoneNumberField`'s case the semantic intent is always to write a phone number 😁☎
     /// - Parameter textContentType:
     /// - Returns: self
