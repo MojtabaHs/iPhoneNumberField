@@ -8,7 +8,6 @@
     <strong><a href="#customize">Customize</a></strong> |
     <strong><a href="#features">Features</a></strong> |
     <strong><a href="#install">Install</a></strong> | 
-    <strong><a href="#usage">Usage</a></strong>
 </p>
 
 <p align="center">
@@ -234,13 +233,4 @@ As always, if you have any questions about iPhoneNumberField, we are available 2
 
 </div>
 
-## Usage
-<b>iPhoneNumberField is FREE and open-source for individuals, and will remain that way forever.</b>
 
-iPhoneNumberField is distributed under a GNU GPL open-source license. 
-
-Commercial friends, please note, this license is <b><a href="https://en.wikipedia.org/wiki/GNU_General_Public_License#Legal_barrier_to_app_stores">incompatible with many commercial applications</a></b>. If your app is distributed for commercial use, it could violate this open-source license even if "the app is free in the App Store."
-
-In order to offer iPhoneNumberField safely to our commercial friends, we made it super easy to purchase a lifetime full-use license for only $0.99. Code on worry free 😁.
-
-<p align="center"><a href="https://general099748.typeform.com/to/p5FtTKBj#package=iPhoneNumberField"> <img src="https://github.com/AlexFine/SwiftUICode/blob/master/public/assets/img/Purchase%20License.png" width="300"> </a> </p>
