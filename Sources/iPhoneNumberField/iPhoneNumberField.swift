@@ -53,7 +53,7 @@ public struct iPhoneNumberField: UIViewRepresentable {
 
     /// The text displayed in the phone number field when no number has been typed yet.
     /// Setting this `nil` will display a default phone number as the placeholder.
-    private let placeholder: String?
+    private let placeholder: LocalizedStringKey?
 
     /// Whether the country flag should be displayed in the phone number field. 🇦🇶
     internal var showFlag: Bool = false
@@ -129,7 +129,7 @@ public struct iPhoneNumberField: UIViewRepresentable {
     /// Whether the phone number field is enabled for interaction. ✅
     internal var isUserInteractionEnabled = true
 
-    public init(_ title: String? = nil,
+    public init(_ title: LocalizedStringKey? = nil,
                 text: Binding<String>,
                 isEditing: Binding<Bool>? = nil,
                 formatted: Bool = true,
@@ -152,6 +152,7 @@ public struct iPhoneNumberField: UIViewRepresentable {
                          for: .editingChanged)
         uiView.delegate = context.coordinator
         uiView.withExamplePlaceholder = placeholder == nil
+        uiView.withPrefix = autofillPrefix
         if let defaultRegion = defaultRegion {
             uiView.partialFormatter.defaultRegion = defaultRegion
         }
@@ -225,6 +226,7 @@ public struct iPhoneNumberField: UIViewRepresentable {
             self.displayedText = displayedText
             self.isFirstResponder = isFirstResponder
             self.formatted = formatted
+            self.withPrefix = autofillPrefix
             self.onBeginEditing = onBeginEditing
             self.onEditingChange = onEditingChange
             self.onPhoneNumberChange = onPhoneNumberChange
