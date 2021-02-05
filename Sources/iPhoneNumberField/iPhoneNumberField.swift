@@ -90,27 +90,27 @@ public struct iPhoneNumberField: UIViewRepresentable {
     internal var formatted: Bool = true
 
     /// An action to perform when editing on the phone number field begins. ▶️
-    /// The closure requiers a `PhoneNumberTextField` paramater, which is the underlying `UIView`, that you can change each time this is called, if desired.
+    /// The closure requires a `PhoneNumberTextField` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
     internal var onBeginEditingHandler = { (view: PhoneNumberTextField) in }
 
     /// An action to perform when any characters in the phone number field are changed. 💬
-    /// The closure requiers a `PhoneNumberTextField` paramater, which is the underlying `UIView`, that you can change each time this is called, if desired.
+    /// The closure requires a `PhoneNumberTextField` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
     internal var onEditingChangeHandler = { (view: PhoneNumberTextField) in }
 
     /// An action to perform when any characters in the phone number field are changed. ☎️
-    /// The closure requiers a `PhoneNumber` paramater, that you can change each time this is called, if desired.
+    /// The closure requires a `PhoneNumber` parameter, that you can change each time this is called, if desired.
     internal var onPhoneNumberChangeHandler = { (phoneNumber: PhoneNumber?) in }
 
     /// An action to perform when editing on the phone number field ends. ⏹
-    /// The closure requiers a `PhoneNumberTextField` paramater, which is the underlying `UIView`, that you can change each time this is called, if desired.
+    /// The closure requires a `PhoneNumberTextField` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
     internal var onEndEditingHandler = { (view: PhoneNumberTextField) in }
     
     /// An action to perform when the phone number field is cleared. ❌
-    /// The closure requiers a `PhoneNumberTextField` paramater, which is the underlying `UIView`, that you can change each time this is called, if desired.
+    /// The closure requires a `PhoneNumberTextField` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
     internal var onClearHandler = { (view: PhoneNumberTextField) in }
     
     /// An action to perform when the return key on the phone number field is pressed. ↪️
-    /// The closure requiers a `PhoneNumberTextField` paramater, which is the underlying `UIView`, that you can change each time this is called, if desired.
+    /// The closure requires a `PhoneNumberTextField` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
     internal var onReturnHandler = { (view: PhoneNumberTextField) in }
 
     /// A closure that requires a `PhoneNumberTextField` object to be configured in the body. ⚙️
@@ -281,7 +281,8 @@ public struct iPhoneNumberField: UIViewRepresentable {
             onEndEditing(textField as! PhoneNumberTextField)
         }
         
-        public func textFieldShouldClear(_ textField: UITextField) -> Bool {            displayedText.wrappedValue = ""
+        public func textFieldShouldClear(_ textField: UITextField) -> Bool {
+            displayedText.wrappedValue = ""
             onClear(textField as! PhoneNumberTextField)
             return true
         }
