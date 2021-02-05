@@ -268,7 +268,16 @@ public extension iPhoneNumberField {
     /// - Returns: A text field with the updated prefix settings.
     func prefixHidden(_ hidden: Bool) -> Self {
         var view = self
-        view.autofillPrefix = !hidden
+        view.previewPrefix = !hidden
+        return view
+    }
+
+    /// Modifies whether the country code prefix should be autofilled. ➕1️⃣
+    /// - Parameter hidden: Whether the country code prefix should be hidden.
+    /// - Returns: A text field with the updated prefix settings.
+    func autofillPrefix(_ autofill: Bool) -> Self {
+        var view = self
+        view.autofillPrefix = autofill
         return view
     }
 

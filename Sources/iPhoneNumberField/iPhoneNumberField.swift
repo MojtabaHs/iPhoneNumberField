@@ -61,8 +61,11 @@ public struct iPhoneNumberField: UIViewRepresentable {
     /// Whether tapping the flag should show a sheet containing all of the country flags. 🏴‍☠️
     internal var selectableFlag: Bool = false
 
-    /// Whether the country code should be automatically displayed for the end user. ➕
+    /// Whether the country code should be automatically filled for the end user. ➕
     internal var autofillPrefix: Bool = false
+
+    /// Whether the country code should be automatically displayed for the end user. 🎓
+    internal var previewPrefix: Bool = false
 
     /// Change the default prefix number by setting the region. 🇮🇷
     internal var defaultRegion: String?
@@ -171,7 +174,8 @@ public struct iPhoneNumberField: UIViewRepresentable {
         uiView.textColor = textColor
         uiView.withFlag = showFlag
         uiView.withDefaultPickerUI = selectableFlag
-        uiView.withPrefix = autofillPrefix
+        uiView.withPrefix = previewPrefix
+        uiView.withExamplePlaceholder = autofillPrefix || placeholder == nil
         uiView.tintColor = accentColor
         
         if let defaultRegion = defaultRegion {
