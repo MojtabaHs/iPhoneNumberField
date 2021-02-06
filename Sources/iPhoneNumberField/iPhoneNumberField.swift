@@ -176,6 +176,7 @@ public struct iPhoneNumberField: UIViewRepresentable {
         uiView.withDefaultPickerUI = selectableFlag
         uiView.withPrefix = previewPrefix
         uiView.withExamplePlaceholder = autofillPrefix || placeholder == nil
+        if autofillPrefix { uiView.resignFirstResponder() } // Workaround touch autofill issue
         uiView.tintColor = accentColor
         
         if let defaultRegion = defaultRegion {
