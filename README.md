@@ -187,7 +187,7 @@ Use our exhaustive input list to customize your view.
 🔚 | `.onEditingEnded(perform: ({ code })` | Modifies the function called when text editing **ends**.
 🔘 | `.onClear(perform: { code })` | Modifies the function called when the user clears the text field.
 ↪️ | `.onReturn(perfom: { code })` | Modifies the function called when the user presses return.
-
+🏳️| `.defaultRegion(_:)` | Receives a country string and selects the default phone format.
 </div>
 
 ##  Features
