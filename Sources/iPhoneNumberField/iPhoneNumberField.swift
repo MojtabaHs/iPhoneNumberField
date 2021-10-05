@@ -165,7 +165,7 @@ public struct iPhoneNumberField: UIViewRepresentable {
     public func updateUIView(_ uiView: PhoneNumberTextField, context: UIViewRepresentableContext<Self>) {
         configuration(uiView)
         
-        uiView.text = displayedText
+        uiView.text = text.isEmpty ? "" : displayedText
         uiView.font = font
         uiView.maxDigits = maxDigits
         uiView.clearButtonMode = clearButtonMode
