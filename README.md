@@ -222,15 +222,3 @@ dependencies: [
 
 ## Help
 As always, if you have any questions about iPhoneNumberField, we are available 24/7 to help.
-
-<div align="center">
-
-| | Reach us at | |
---- |:---:|:---:
-📞 | +1 (415) 735-4464 | **Call**
-📧 | hello@iswiftui.com | **Email**
-📲 | +1 (415) 735-4464 | **Text**
-
-</div>
-
-
