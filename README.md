@@ -219,6 +219,3 @@ dependencies: [
     .package(url: "https://github.com/MojtabaHs/iPhoneNumberField.git", .upToNextMajor(from: "0.5.0"))
 ]
 ```
-
-## Help
-As always, if you have any questions about iPhoneNumberField, we are available 24/7 to help.
