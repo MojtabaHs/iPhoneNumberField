@@ -291,15 +291,6 @@ public extension iPhoneNumberField {
         return view
     }
     
-    /// Modifies whether the text field is **disabled**. ✋
-    /// - Parameter disabled: Whether the text field is disabled 🛑
-    /// - Returns: A text field with updated disabled settings ⬜️⚙️
-    func disabled(_ disabled: Bool) -> Self {
-        var view = self
-        view.isUserInteractionEnabled = !disabled
-        return view
-    }
-    
     /// Modifies the function called when text editing **begins**. ▶️
     /// - Parameter action: The action to perform. If `action` is `nil`, the call has no effect.
     /// - Returns: An updated text field using the desired function called when text editing begins ➡️
