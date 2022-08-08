@@ -29,6 +29,7 @@ struct ContentView: View {
                 $0.textColor = .label
                 $0.numberPlaceholderColor = .label
             }
+            .padding()
         }
     }
 }
