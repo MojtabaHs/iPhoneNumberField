@@ -1,6 +1,6 @@
 //
-//  DemoApp.swift
-//  Demo
+//  MultiplatformDemoApp.swift
+//  MultiplatformDemo
 //
 //  Created by Seyed Mojtaba Hosseini Zeidabadi on 8/8/22.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct DemoApp: App {
+struct MultiplatformDemoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
