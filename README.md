@@ -216,6 +216,6 @@ You can use the Swift package manager to install `iPhoneNumberField`. Find Xcode
 
 ```
 dependencies: [
-    .package(url: "https://github.com/MojtabaHs/iPhoneNumberField.git", .upToNextMajor(from: "0.5.0"))
+    .package(url: "https://github.com/MojtabaHs/iPhoneNumberField.git", .upToNextMinor(from: "0.10.0"))
 ]
 ```
