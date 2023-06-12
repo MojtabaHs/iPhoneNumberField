@@ -223,4 +223,4 @@ dependencies: [
 
 ## Pricing
 This library is under the **MIT** license and completely **FREE for ANY kind of usage**, but you can [**donate me!**](https://github.com/MojtabaHs/donate) as much as you want. :)
-Remember that it is my pleasure to be a part of the commuinity and try my best to deliver my experience to anyone who needs it.
+Remember that it is my pleasure to be a part of the community and try my best to deliver my experience to anyone who needs it.
