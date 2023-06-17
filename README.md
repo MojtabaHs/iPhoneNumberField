@@ -8,7 +8,7 @@
     <strong><a href="#customize">Customize</a></strong> |
     <strong><a href="#features">Features</a></strong> |
     <strong><a href="#install">Install</a></strong> |
-    <strong><a href="#pricing">Pricing</a></strong> | 
+    <strong><a href="#pricing">Pricing</a></strong>
 </p>
 
 <p align="center">
@@ -222,9 +222,5 @@ dependencies: [
 ```
 
 ## Pricing
-It's completely **FREE for ANY kind of usage**, but you can donate as much as you want using my crypto wallet.
-Remember that it is my pleasure to be a part of the commuinity and try my best to deliver my experience to anyone who needs it.
-
-<a href="0x14b7eC1d615707CbFFddADdbbCb76d875943cC74" target="_blank"> 
-  <img width="126" alt="Tether Wallet ID" src="https://i.stack.imgur.com/CF9nU.jpg" href="https://google.com">
-</a> 
+This library is under the **MIT** license and completely **FREE for ANY kind of usage**, but you can [**donate me!**](https://github.com/MojtabaHs/donate) as much as you want. :)
+Remember that it is my pleasure to be a part of the community and try my best to deliver my experience to anyone who needs it.
