@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.7
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -16,7 +16,9 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/marmelroy/PhoneNumberKit", .upToNextMajor(from: "3.4.5"))
+        // TODO: - Uncomment path to the main repo and point to a version where this PR (https://github.com/marmelroy/PhoneNumberKit/pull/669) is merged.
+//        .package(url: "https://github.com/marmelroy/PhoneNumberKit", .upToNextMajor(from: "3.4.5")),
+        .package(url: "https://github.com/MussaCharles/PhoneNumberKit", branch: "charles/feature-textfield-insets")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.

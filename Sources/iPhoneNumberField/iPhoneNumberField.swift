@@ -131,23 +131,30 @@ public struct iPhoneNumberField: UIViewRepresentable {
     
     /// Whether the phone number field is enabled for interaction. ✅
     internal var isUserInteractionEnabled = true
-
+    
+    private let insets: UIEdgeInsets
+    private let clearButtonPadding: CGFloat
+    
     public init(_ title: String? = nil,
                 text: Binding<String>,
                 isEditing: Binding<Bool>? = nil,
                 formatted: Bool = true,
+                insets: UIEdgeInsets = .zero,
+                clearButtonPadding: CGFloat = 6,
                 configuration: @escaping (UIViewType) -> () = { _ in } ) {
 
         self.placeholder = title
         self.externalIsFirstResponder = isEditing
         self.formatted = formatted
+        self.insets = insets
+        self.clearButtonPadding = clearButtonPadding
         self._text = text
         self._displayedText = State(initialValue: text.wrappedValue)
         self.configuration = configuration
     }
 
     public func makeUIView(context: UIViewRepresentableContext<Self>) -> PhoneNumberTextField {
-        let uiView = UIViewType()
+        let uiView = UIViewType(insets: insets, clearButtonPadding: clearButtonPadding)
         
         uiView.setContentHuggingPriority(.defaultHigh, for: .vertical)
         uiView.addTarget(context.coordinator,
