@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "PhoneNumberKit",
-        "repositoryURL": "https://github.com/marmelroy/PhoneNumberKit",
-        "state": {
-          "branch": null,
-          "revision": "c7d7b0c91ef0ad7e413022edfcf5d6f75561e2d5",
-          "version": "3.3.1"
-        }
+  "pins" : [
+    {
+      "identity" : "phonenumberkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MussaCharles/PhoneNumberKit",
+      "state" : {
+        "revision" : "c474ff7aec5093f956d3cdc33082dd9e5d497782",
+        "version" : "0.1.0"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }

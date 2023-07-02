@@ -18,7 +18,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // TODO: - Uncomment path to the main repo and point to a version where this PR (https://github.com/marmelroy/PhoneNumberKit/pull/669) is merged.
 //        .package(url: "https://github.com/marmelroy/PhoneNumberKit", .upToNextMajor(from: "3.4.5")),
-        .package(url: "https://github.com/MussaCharles/PhoneNumberKit", branch: "charles/feature-textfield-insets")
+        .package(url: "https://github.com/MussaCharles/PhoneNumberKit", from: "0.1.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
