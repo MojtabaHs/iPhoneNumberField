@@ -3,10 +3,10 @@
     {
       "identity" : "phonenumberkit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/MussaCharles/PhoneNumberKit",
+      "location" : "https://github.com/marmelroy/PhoneNumberKit",
       "state" : {
-        "revision" : "c474ff7aec5093f956d3cdc33082dd9e5d497782",
-        "version" : "0.1.0"
+        "revision" : "9bc965a326df8d5115f0b7bb77f09c542b8ec417",
+        "version" : "3.6.6"
       }
     }
   ],
