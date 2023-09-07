@@ -179,7 +179,7 @@ public struct iPhoneNumberField: UIViewRepresentable {
         } else {
             uiView.withExamplePlaceholder = autofillPrefix
         }
-        if autofillPrefix && displayedText.isEmpty && isFirstResponder { uiView.resignFirstResponder() } // Workaround touch autofill issue
+        
         uiView.tintColor = accentColor
         
         if let numberPlaceholderColor = numberPlaceholderColor {
@@ -192,10 +192,12 @@ public struct iPhoneNumberField: UIViewRepresentable {
             uiView.textAlignment = textAlignment
         }
 
-        if isFirstResponder {
-            uiView.becomeFirstResponder()
-        } else {
-            uiView.resignFirstResponder()
+        DispatchQueue.main.async {
+            if isFirstResponder {
+                uiView.becomeFirstResponder()
+            } else {
+                uiView.resignFirstResponder()
+            }
         }
         
         configuration(uiView)
