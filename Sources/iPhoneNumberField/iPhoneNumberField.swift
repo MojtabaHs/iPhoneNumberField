@@ -137,7 +137,7 @@ public struct iPhoneNumberField: UIViewRepresentable {
     public init(_ title: String? = nil,
                 text: Binding<String>,
                 code: Binding<String>,
-                number: Binding<String>
+                number: Binding<String>,
                 isEditing: Binding<Bool>? = nil,
                 formatted: Bool = true,
                 configuration: @escaping (UIViewType) -> () = { _ in } ) {
