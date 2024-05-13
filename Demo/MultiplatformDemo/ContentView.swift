@@ -30,6 +30,11 @@ struct ContentView: View {
                 $0.numberPlaceholderColor = .label
             }
             .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(Color(.secondarySystemGroupedBackground))
+            )
+            .padding()
         }
     }
 }
