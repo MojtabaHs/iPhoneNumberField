@@ -35,7 +35,7 @@ struct iPhoneNumberFieldTestView: View {
         RoundedRectangle(cornerRadius: cornerRadius)
           .stroke(borderColor)
       )
-      .frame(200, 200)
+      .frame(width: 200, height: 200)
       .background(Color.white)
   }
 }
