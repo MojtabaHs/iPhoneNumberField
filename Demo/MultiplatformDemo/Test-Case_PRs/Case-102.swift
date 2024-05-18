@@ -8,6 +8,7 @@
 import iPhoneNumberField
 import SwiftUI
 
+@available(iOS 15.0, *) /// because of the `textInputAutocapitalization` modifier
 struct iPhoneNumberFieldTestView: View {
   var placeholderText: String
   @Binding var mainText: String
@@ -40,6 +41,7 @@ struct iPhoneNumberFieldTestView: View {
   }
 }
 
+@available(iOS 15.0, *)
 struct iPhoneNumberFieldTest: View {
   @State var number: String = ""
   var body: some View {
