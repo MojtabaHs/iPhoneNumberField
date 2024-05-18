@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A4F34632BF89D0500868921 /* Case-102.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4F34612BF89CDE00868921 /* Case-102.swift */; };
 		2AA44DC728A11687001BF8F0 /* MultiplatformDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA44DC628A11687001BF8F0 /* MultiplatformDemoApp.swift */; };
 		2AA44DC928A11687001BF8F0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA44DC828A11687001BF8F0 /* ContentView.swift */; };
 		2AA44DCB28A11688001BF8F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA44DCA28A11688001BF8F0 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A4F34612BF89CDE00868921 /* Case-102.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Case-102.swift"; sourceTree = "<group>"; };
 		2AA44DC328A11687001BF8F0 /* iPhoneNumberFieldDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPhoneNumberFieldDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA44DC628A11687001BF8F0 /* MultiplatformDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplatformDemoApp.swift; sourceTree = "<group>"; };
 		2AA44DC828A11687001BF8F0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +38,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A4F34622BF89CDE00868921 /* Test-Case_PRs */ = {
+			isa = PBXGroup;
+			children = (
+				2A4F34612BF89CDE00868921 /* Case-102.swift */,
+			);
+			path = "Test-Case_PRs";
+			sourceTree = "<group>";
+		};
 		2AA44DBA28A11687001BF8F0 = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +67,7 @@
 		2AA44DC528A11687001BF8F0 /* MultiplatformDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2A4F34622BF89CDE00868921 /* Test-Case_PRs */,
 				2AA44DC628A11687001BF8F0 /* MultiplatformDemoApp.swift */,
 				2AA44DC828A11687001BF8F0 /* ContentView.swift */,
 				2AA44DCA28A11688001BF8F0 /* Assets.xcassets */,
@@ -162,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A4F34632BF89D0500868921 /* Case-102.swift in Sources */,
 				2AA44DC928A11687001BF8F0 /* ContentView.swift in Sources */,
 				2AA44DC728A11687001BF8F0 /* MultiplatformDemoApp.swift in Sources */,
 			);
