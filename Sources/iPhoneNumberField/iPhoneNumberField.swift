@@ -282,16 +282,18 @@ public struct iPhoneNumberField: UIViewRepresentable {
         }
 
         public func textFieldDidBeginEditing(_ textField: UITextField) {
-            DispatchQueue.main.async { [isFirstResponder] in
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
                 isFirstResponder.wrappedValue = true
-                self.onBeginEditing(textField as! PhoneNumberTextField)
+                onBeginEditing(textField as! PhoneNumberTextField)
             }
         }
 
         public func textFieldDidEndEditing(_ textField: UITextField) {
-            DispatchQueue.main.async { [isFirstResponder] in
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
                 isFirstResponder.wrappedValue = false
-                self.onBeginEditing(textField as! PhoneNumberTextField)
+                onBeginEditing(textField as! PhoneNumberTextField)
             }
         }
         
