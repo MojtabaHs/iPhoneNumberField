@@ -163,45 +163,45 @@ public struct iPhoneNumberField: UIViewRepresentable {
     }
 
     public func updateUIView(_ uiView: PhoneNumberTextField, context: UIViewRepresentableContext<Self>) {
-        uiView.textContentType = .telephoneNumber //allow auto-fill to work with telephone text field
-        uiView.text = text
-        uiView.font = font
-        uiView.maxDigits = maxDigits
-        uiView.clearButtonMode = clearButtonMode
-        uiView.placeholder = placeholder
-        uiView.borderStyle = borderStyle
-        uiView.textColor = textColor
-        uiView.withFlag = showFlag
-        uiView.withDefaultPickerUI = selectableFlag
-        uiView.withPrefix = previewPrefix
-        uiView.partialFormatter.defaultRegion = defaultRegion ?? PhoneNumberKit.defaultRegionCode()
-        if placeholder != nil {
-            uiView.placeholder = placeholder
-        } else {
-            uiView.withExamplePlaceholder = autofillPrefix
-        }
-        
-        uiView.tintColor = accentColor
-        
-        if let numberPlaceholderColor = numberPlaceholderColor {
-            uiView.numberPlaceholderColor = numberPlaceholderColor
-        }
-        if let countryCodePlaceholderColor = countryCodePlaceholderColor {
-            uiView.countryCodePlaceholderColor = countryCodePlaceholderColor
-        }
-        if let textAlignment = textAlignment {
-            uiView.textAlignment = textAlignment
-        }
-
         DispatchQueue.main.async {
+            uiView.textContentType = .telephoneNumber //allow auto-fill to work with telephone text field
+            uiView.text = text
+            uiView.font = font
+            uiView.maxDigits = maxDigits
+            uiView.clearButtonMode = clearButtonMode
+            uiView.placeholder = placeholder
+            uiView.borderStyle = borderStyle
+            uiView.textColor = textColor
+            uiView.withFlag = showFlag
+            uiView.withDefaultPickerUI = selectableFlag
+            uiView.withPrefix = previewPrefix
+            uiView.partialFormatter.defaultRegion = defaultRegion ?? PhoneNumberKit.defaultRegionCode()
+            if placeholder != nil {
+                uiView.placeholder = placeholder
+            } else {
+                uiView.withExamplePlaceholder = autofillPrefix
+            }
+
+            uiView.tintColor = accentColor
+
+            if let numberPlaceholderColor = numberPlaceholderColor {
+                uiView.numberPlaceholderColor = numberPlaceholderColor
+            }
+            if let countryCodePlaceholderColor = countryCodePlaceholderColor {
+                uiView.countryCodePlaceholderColor = countryCodePlaceholderColor
+            }
+            if let textAlignment = textAlignment {
+                uiView.textAlignment = textAlignment
+            }
+
             if isFirstResponder {
                 uiView.becomeFirstResponder()
             } else {
                 uiView.resignFirstResponder()
             }
+
+            configuration(uiView)
         }
-        
-        configuration(uiView)
     }
 
     public func makeCoordinator() -> Coordinator {
