@@ -19,6 +19,8 @@ public struct iPhoneNumberField: UIViewRepresentable {
     /// The formatted phone number `String`.
     /// This variable writes to the binding provided in the initializer.
     @Binding public var text: String
+    @Binding public var code: String
+    @Binding public var number: String
     @State private var displayedText: String
     
     /// Whether or not the phone number field is editing.
@@ -134,6 +136,8 @@ public struct iPhoneNumberField: UIViewRepresentable {
 
     public init(_ title: String? = nil,
                 text: Binding<String>,
+                code: Binding<String>,
+                number: Binding<String>,
                 isEditing: Binding<Bool>? = nil,
                 formatted: Bool = true,
                 configuration: @escaping (UIViewType) -> () = { _ in } ) {
@@ -142,6 +146,8 @@ public struct iPhoneNumberField: UIViewRepresentable {
         self.externalIsFirstResponder = isEditing
         self.formatted = formatted
         self._text = text
+        self._code = code
+        self._number = number
         self._displayedText = State(initialValue: text.wrappedValue)
         self.configuration = configuration
     }
@@ -270,6 +276,8 @@ public struct iPhoneNumberField: UIViewRepresentable {
                     let country = String(number.countryCode)
                     let nationalNumber = String(number.nationalNumber)
                     text.wrappedValue = "+" + country + nationalNumber
+                    code.wrappedValue = country
+                    number.wrappedValue = number
                 } else {
                     // Otherwise, maintain an empty string
                     text.wrappedValue = ""
