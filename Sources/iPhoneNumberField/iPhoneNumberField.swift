@@ -94,11 +94,11 @@ public struct iPhoneNumberField: UIViewRepresentable {
 
     /// An action to perform when editing on the phone number field begins. ▶️
     /// The closure requires a `PhoneNumberTextField` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
-    internal var onBeginEditingHandler = { (view: PhoneNumberTextField) in }
+    internal var onBeginEditingHandler = { (view: UIViewType) in }
 
     /// An action to perform when any characters in the phone number field are changed. 💬
     /// The closure requires a `PhoneNumberTextField` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
-    internal var onEditingChangeHandler = { (view: PhoneNumberTextField) in }
+    internal var onEditingChangeHandler = { (view: UIViewType) in }
 
     /// An action to perform when any characters in the phone number field are changed. ☎️
     /// The closure requires a `PhoneNumber` parameter, that you can change each time this is called, if desired.
@@ -106,18 +106,18 @@ public struct iPhoneNumberField: UIViewRepresentable {
 
     /// An action to perform when editing on the phone number field ends. ⏹
     /// The closure requires a `PhoneNumberTextField` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
-    internal var onEndEditingHandler = { (view: PhoneNumberTextField) in }
+    internal var onEndEditingHandler = { (view: UIViewType) in }
     
     /// An action to perform when the phone number field is cleared. ❌
     /// The closure requires a `PhoneNumberTextField` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
-    internal var onClearHandler = { (view: PhoneNumberTextField) in }
+    internal var onClearHandler = { (view: UIViewType) in }
     
     /// An action to perform when the return key on the phone number field is pressed. ↪️
     /// The closure requires a `PhoneNumberTextField` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
-    internal var onReturnHandler = { (view: PhoneNumberTextField) in }
+    internal var onReturnHandler = { (view: UIViewType) in }
 
     /// A closure that requires a `PhoneNumberTextField` object to be configured in the body. ⚙️
-    public var configuration = { (view: PhoneNumberTextField) in }
+    public var configuration = { (view: UIViewType) in }
     
     @Environment(\.layoutDirection) internal var layoutDirection: LayoutDirection
     /// The horizontal alignment of the phone number field.
@@ -132,22 +132,27 @@ public struct iPhoneNumberField: UIViewRepresentable {
     /// Whether the phone number field is enabled for interaction. ✅
     internal var isUserInteractionEnabled = true
 
-    public init(_ title: String? = nil,
-                text: Binding<String>,
-                isEditing: Binding<Bool>? = nil,
-                formatted: Bool = true,
-                configuration: @escaping (UIViewType) -> () = { _ in } ) {
-
+    internal var phoneNumberKit: PhoneNumberKit
+    
+    public init(
+        _ title: String? = nil,
+        text: Binding<String>,
+        isEditing: Binding<Bool>? = nil,
+        formatted: Bool = true,
+        phoneNumberKit: PhoneNumberKit = PhoneNumberKit(),
+        configuration: @escaping (UIViewType) -> () = { _ in }
+    ) {
         self.placeholder = title
         self.externalIsFirstResponder = isEditing
         self.formatted = formatted
         self._text = text
         self._displayedText = State(initialValue: text.wrappedValue)
+        self.phoneNumberKit = phoneNumberKit
         self.configuration = configuration
     }
 
     public func makeUIView(context: UIViewRepresentableContext<Self>) -> PhoneNumberTextField {
-        let uiView = UIViewType()
+        let uiView = UIViewType(withPhoneNumberKit: phoneNumberKit)
         
         uiView.setContentHuggingPriority(.defaultHigh, for: .vertical)
         uiView.addTarget(context.coordinator,
@@ -203,22 +208,27 @@ public struct iPhoneNumberField: UIViewRepresentable {
             configuration(uiView)
         }
     }
+}
 
-    public func makeCoordinator() -> Coordinator {
+// MARK: - Coordinator
+
+public extension iPhoneNumberField {
+    func makeCoordinator() -> Coordinator {
         Coordinator(
             text: $text,
-                    displayedText: $displayedText,
-                    isFirstResponder: externalIsFirstResponder ?? $internalIsFirstResponder,
-                    formatted: formatted,
-                    onBeginEditing: onBeginEditingHandler,
-                    onEditingChange: onEditingChangeHandler,
-                    onPhoneNumberChange: onPhoneNumberChangeHandler,
-                    onEndEditing: onEndEditingHandler,
-                    onClear: onClearHandler,
-                    onReturn: onReturnHandler)
+            displayedText: $displayedText,
+            isFirstResponder: externalIsFirstResponder ?? $internalIsFirstResponder,
+            formatted: formatted,
+            onBeginEditing: onBeginEditingHandler,
+            onEditingChange: onEditingChangeHandler,
+            onPhoneNumberChange: onPhoneNumberChangeHandler,
+            onEndEditing: onEndEditingHandler,
+            onClear: onClearHandler,
+            onReturn: onReturnHandler
+        )
     }
 
-    public class Coordinator: NSObject, UITextFieldDelegate {
+    class Coordinator: NSObject, UITextFieldDelegate {
         internal init(
             text: Binding<String>,
             displayedText: Binding<String>,

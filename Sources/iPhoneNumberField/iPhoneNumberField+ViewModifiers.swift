@@ -368,10 +368,4 @@ public extension iPhoneNumberField {
         view.formatted = formatted
         return view
     }
-    
-    /// Our packages inherently voids the functionality of textContentType 🙃. As described by Apple 👩‍💻, "The textContentType property is designed to provide the keyboard with extra information about the semantic intent of the text document". However, in `iPhoneNumberField`'s case the semantic intent is always to write a phone number 😁☎
-    /// - Parameter textContentType:
-    /// - Returns: self
-//    @available(*, deprecated, message: "Our packages inherently voids the functionality of textContentType 🙃")
-//    func textContentType(_ textContentType: UITextContentType?) -> some View { return self }
 }
