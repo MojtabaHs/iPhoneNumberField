@@ -159,6 +159,7 @@ public struct iPhoneNumberField: UIViewRepresentable {
             uiView.partialFormatter.defaultRegion = defaultRegion
         }
         
+        configuration(uiView)
         return uiView
     }
 
