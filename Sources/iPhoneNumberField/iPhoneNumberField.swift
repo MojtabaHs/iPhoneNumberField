@@ -15,6 +15,7 @@ import PhoneNumberKit
 
 /// A text field view representable structure that formats the user's phone number as they type.
 public struct iPhoneNumberField: UIViewRepresentable {
+    public typealias UIViewType = PhoneNumberField
     
     /// The formatted phone number `String`.
     /// This variable writes to the binding provided in the initializer.
@@ -93,11 +94,11 @@ public struct iPhoneNumberField: UIViewRepresentable {
     internal var formatted: Bool = true
 
     /// An action to perform when editing on the phone number field begins. ▶️
-    /// The closure requires a `PhoneNumberTextField` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
+    /// The closure requires a `UIViewType` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
     internal var onBeginEditingHandler = { (view: UIViewType) in }
 
     /// An action to perform when any characters in the phone number field are changed. 💬
-    /// The closure requires a `PhoneNumberTextField` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
+    /// The closure requires a `UIViewType` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
     internal var onEditingChangeHandler = { (view: UIViewType) in }
 
     /// An action to perform when any characters in the phone number field are changed. ☎️
@@ -105,18 +106,18 @@ public struct iPhoneNumberField: UIViewRepresentable {
     internal var onPhoneNumberChangeHandler = { (phoneNumber: PhoneNumber?) in }
 
     /// An action to perform when editing on the phone number field ends. ⏹
-    /// The closure requires a `PhoneNumberTextField` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
+    /// The closure requires a `UIViewType` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
     internal var onEndEditingHandler = { (view: UIViewType) in }
     
     /// An action to perform when the phone number field is cleared. ❌
-    /// The closure requires a `PhoneNumberTextField` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
+    /// The closure requires a `UIViewType` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
     internal var onClearHandler = { (view: UIViewType) in }
     
     /// An action to perform when the return key on the phone number field is pressed. ↪️
-    /// The closure requires a `PhoneNumberTextField` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
+    /// The closure requires a `UIViewType` parameter, which is the underlying `UIView`, that you can change each time this is called, if desired.
     internal var onReturnHandler = { (view: UIViewType) in }
 
-    /// A closure that requires a `PhoneNumberTextField` object to be configured in the body. ⚙️
+    /// A closure that requires a `UIViewType` object to be configured in the body. ⚙️
     public var configuration = { (view: UIViewType) in }
     
     @Environment(\.layoutDirection) internal var layoutDirection: LayoutDirection
@@ -151,7 +152,7 @@ public struct iPhoneNumberField: UIViewRepresentable {
         self.configuration = configuration
     }
 
-    public func makeUIView(context: UIViewRepresentableContext<Self>) -> PhoneNumberTextField {
+    public func makeUIView(context: UIViewRepresentableContext<Self>) -> UIViewType {
         let uiView = UIViewType(withPhoneNumberKit: phoneNumberKit)
         
         uiView.setContentHuggingPriority(.defaultHigh, for: .vertical)
@@ -170,10 +171,14 @@ public struct iPhoneNumberField: UIViewRepresentable {
         return uiView
     }
 
-    public func updateUIView(_ uiView: PhoneNumberTextField, context: UIViewRepresentableContext<Self>) {
+    public func updateUIView(_ uiView: UIViewType, context: UIViewRepresentableContext<Self>) {
         DispatchQueue.main.async {
             uiView.textContentType = .telephoneNumber //allow auto-fill to work with telephone text field
-            uiView.text = text
+            if (uiView.text?.isEmpty ?? true) && !text.isEmpty {
+                uiView.insertText(text)
+            } else {
+                uiView.text = text
+            }
             uiView.font = font
             uiView.maxDigits = maxDigits
             uiView.clearButtonMode = clearButtonMode
@@ -237,12 +242,12 @@ public extension iPhoneNumberField {
             displayedText: Binding<String>,
             isFirstResponder: Binding<Bool>,
             formatted: Bool,
-            onBeginEditing: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in },
-            onEditingChange: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in },
+            onBeginEditing: @escaping (UIViewType) -> () = { (view: UIViewType) in },
+            onEditingChange: @escaping (UIViewType) -> () = { (view: UIViewType) in },
             onPhoneNumberChange: @escaping (PhoneNumber?) -> () = { (view: PhoneNumber?) in },
-            onEndEditing: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in },
-            onClear: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in },
-            onReturn: @escaping (PhoneNumberTextField) -> () = { (view: PhoneNumberTextField) in } )
+            onEndEditing: @escaping (UIViewType) -> () = { (view: UIViewType) in },
+            onClear: @escaping (UIViewType) -> () = { (view: UIViewType) in },
+            onReturn: @escaping (UIViewType) -> () = { (view: UIViewType) in } )
         {
             self.text = text
             self.displayedText = displayedText
@@ -261,18 +266,18 @@ public extension iPhoneNumberField {
         var isFirstResponder: Binding<Bool>
         var formatted: Bool
 
-        var onBeginEditing = { (view: PhoneNumberTextField) in }
-        var onEditingChange = { (view: PhoneNumberTextField) in }
+        var onBeginEditing = { (view: UIViewType) in }
+        var onEditingChange = { (view: UIViewType) in }
         var onPhoneNumberChange = { (phoneNumber: PhoneNumber?) in }
-        var onEndEditing = { (view: PhoneNumberTextField) in }
-        var onClear = { (view: PhoneNumberTextField) in }
-        var onReturn = { (view: PhoneNumberTextField) in }
+        var onEndEditing = { (view: UIViewType) in }
+        var onClear = { (view: UIViewType) in }
+        var onReturn = { (view: UIViewType) in }
 
         @objc public func textViewDidChange(_ textField: UITextField) {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
 
-                guard let textField = textField as? PhoneNumberTextField else {
+                guard let textField = textField as? UIViewType else {
                     return assertionFailure("Undefined state")
                 }
 
@@ -302,7 +307,7 @@ public extension iPhoneNumberField {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 isFirstResponder.wrappedValue = true
-                onBeginEditing(textField as! PhoneNumberTextField)
+                onBeginEditing(textField as! UIViewType)
             }
         }
 
@@ -310,7 +315,7 @@ public extension iPhoneNumberField {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 isFirstResponder.wrappedValue = false
-                onBeginEditing(textField as! PhoneNumberTextField)
+                onBeginEditing(textField as! UIViewType)
             }
         }
         
@@ -318,7 +323,7 @@ public extension iPhoneNumberField {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 displayedText.wrappedValue = ""
-                onClear(textField as! PhoneNumberTextField)
+                onClear(textField as! UIViewType)
             }
             return true
         }
@@ -326,7 +331,7 @@ public extension iPhoneNumberField {
         public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
-                onReturn(textField as! PhoneNumberTextField)
+                onReturn(textField as! UIViewType)
             }
             return true
         }
