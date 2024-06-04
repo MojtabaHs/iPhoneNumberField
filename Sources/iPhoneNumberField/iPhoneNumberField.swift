@@ -159,6 +159,9 @@ public struct iPhoneNumberField: UIViewRepresentable {
                          action: #selector(Coordinator.textViewDidChange),
                          for: .editingChanged)
         uiView.delegate = context.coordinator
+        if !text.isEmpty {
+            uiView.insertText(text)
+        }
         uiView.withExamplePlaceholder = placeholder == nil
         if let defaultRegion = defaultRegion {
             uiView.partialFormatter.defaultRegion = defaultRegion
