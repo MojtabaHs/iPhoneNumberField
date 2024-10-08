@@ -298,7 +298,7 @@ public struct iPhoneNumberField: UIViewRepresentable {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 isFirstResponder.wrappedValue = false
-                onBeginEditing(textField as! PhoneNumberTextField)
+                onEndEditing(textField as! PhoneNumberTextField)
             }
         }
         
