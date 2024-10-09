@@ -159,46 +159,50 @@ public struct iPhoneNumberField: UIViewRepresentable {
             uiView.partialFormatter.defaultRegion = defaultRegion
         }
         
+        configuration(uiView)
         return uiView
     }
 
     public func updateUIView(_ uiView: PhoneNumberTextField, context: UIViewRepresentableContext<Self>) {
-        uiView.textContentType = .telephoneNumber //allow auto-fill to work with telephone text field
-        uiView.text = text
-        uiView.font = font
-        uiView.maxDigits = maxDigits
-        uiView.clearButtonMode = clearButtonMode
-        uiView.placeholder = placeholder
-        uiView.borderStyle = borderStyle
-        uiView.textColor = textColor
-        uiView.withFlag = showFlag
-        uiView.withDefaultPickerUI = selectableFlag
-        uiView.withPrefix = previewPrefix
-        if placeholder != nil {
+        DispatchQueue.main.async {
+            uiView.textContentType = .telephoneNumber //allow auto-fill to work with telephone text field
+            uiView.text = text
+            uiView.font = font
+            uiView.maxDigits = maxDigits
+            uiView.clearButtonMode = clearButtonMode
             uiView.placeholder = placeholder
-        } else {
-            uiView.withExamplePlaceholder = autofillPrefix
-        }
-        if autofillPrefix && displayedText.isEmpty && isFirstResponder { uiView.resignFirstResponder() } // Workaround touch autofill issue
-        uiView.tintColor = accentColor
-        
-        if let numberPlaceholderColor = numberPlaceholderColor {
-            uiView.numberPlaceholderColor = numberPlaceholderColor
-        }
-        if let countryCodePlaceholderColor = countryCodePlaceholderColor {
-            uiView.countryCodePlaceholderColor = countryCodePlaceholderColor
-        }
-        if let textAlignment = textAlignment {
-            uiView.textAlignment = textAlignment
-        }
+            uiView.borderStyle = borderStyle
+            uiView.textColor = textColor
+            uiView.withFlag = showFlag
+            uiView.withDefaultPickerUI = selectableFlag
+            uiView.withPrefix = previewPrefix
+            uiView.partialFormatter.defaultRegion = defaultRegion ?? PhoneNumberKit.defaultRegionCode()
+            if placeholder != nil {
+                uiView.placeholder = placeholder
+            } else {
+                uiView.withExamplePlaceholder = autofillPrefix
+            }
 
-        if isFirstResponder {
-            uiView.becomeFirstResponder()
-        } else {
-            uiView.resignFirstResponder()
+            uiView.tintColor = accentColor
+
+            if let numberPlaceholderColor = numberPlaceholderColor {
+                uiView.numberPlaceholderColor = numberPlaceholderColor
+            }
+            if let countryCodePlaceholderColor = countryCodePlaceholderColor {
+                uiView.countryCodePlaceholderColor = countryCodePlaceholderColor
+            }
+            if let textAlignment = textAlignment {
+                uiView.textAlignment = textAlignment
+            }
+
+            if isFirstResponder {
+                uiView.becomeFirstResponder()
+            } else {
+                uiView.resignFirstResponder()
+            }
+
+            configuration(uiView)
         }
-        
-        configuration(uiView)
     }
 
     public func makeCoordinator() -> Coordinator {
@@ -253,49 +257,65 @@ public struct iPhoneNumberField: UIViewRepresentable {
         var onReturn = { (view: PhoneNumberTextField) in }
 
         @objc public func textViewDidChange(_ textField: UITextField) {
-            guard let textField = textField as? PhoneNumberTextField else {
-                return assertionFailure("Undefined state")
-            }
-            
-            // Updating the binding
-            if formatted {
-                // Display the text exactly if unformatted
-                text.wrappedValue = textField.text ?? ""
-            } else {
-                if let number = textField.phoneNumber {
-                    // If we have a valid number, update the binding
-                    let country = String(number.countryCode)
-                    let nationalNumber = String(number.nationalNumber)
-                    text.wrappedValue = "+" + country + nationalNumber
-                } else {
-                    // Otherwise, maintain an empty string
-                    text.wrappedValue = ""
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+
+                guard let textField = textField as? PhoneNumberTextField else {
+                    return assertionFailure("Undefined state")
                 }
+
+                // Updating the binding
+                if formatted {
+                    // Display the text exactly if unformatted
+                    text.wrappedValue = textField.text ?? ""
+                } else {
+                    if let number = textField.phoneNumber {
+                        // If we have a valid number, update the binding
+                        let country = String(number.countryCode)
+                        let nationalNumber = String(number.nationalNumber)
+                        text.wrappedValue = "+" + country + nationalNumber
+                    } else {
+                        // Otherwise, maintain an empty string
+                        text.wrappedValue = ""
+                    }
+                }
+
+                displayedText.wrappedValue = textField.text ?? ""
+                onEditingChange(textField)
+                onPhoneNumberChange(textField.phoneNumber)
             }
-            
-            displayedText.wrappedValue = textField.text ?? ""
-            onEditingChange(textField)
-            onPhoneNumberChange(textField.phoneNumber)
         }
 
         public func textFieldDidBeginEditing(_ textField: UITextField) {
-            isFirstResponder.wrappedValue = true
-            onBeginEditing(textField as! PhoneNumberTextField)
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                isFirstResponder.wrappedValue = true
+                onBeginEditing(textField as! PhoneNumberTextField)
+            }
         }
 
         public func textFieldDidEndEditing(_ textField: UITextField) {
-            isFirstResponder.wrappedValue = false
-            onEndEditing(textField as! PhoneNumberTextField)
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                isFirstResponder.wrappedValue = false
+                onEndEditing(textField as! PhoneNumberTextField)
+            }
         }
         
         public func textFieldShouldClear(_ textField: UITextField) -> Bool {
-            displayedText.wrappedValue = ""
-            onClear(textField as! PhoneNumberTextField)
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                displayedText.wrappedValue = ""
+                onClear(textField as! PhoneNumberTextField)
+            }
             return true
         }
         
         public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            onReturn(textField as! PhoneNumberTextField)
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                onReturn(textField as! PhoneNumberTextField)
+            }
             return true
         }
     }

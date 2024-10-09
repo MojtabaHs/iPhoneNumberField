@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2AA44DC328A11687001BF8F0 /* MultiplatformDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplatformDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AA44DC328A11687001BF8F0 /* iPhoneNumberFieldDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPhoneNumberFieldDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA44DC628A11687001BF8F0 /* MultiplatformDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplatformDemoApp.swift; sourceTree = "<group>"; };
 		2AA44DC828A11687001BF8F0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2AA44DCA28A11688001BF8F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,7 +49,7 @@
 		2AA44DC428A11687001BF8F0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2AA44DC328A11687001BF8F0 /* MultiplatformDemo.app */,
+				2AA44DC328A11687001BF8F0 /* iPhoneNumberFieldDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,9 +92,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2AA44DC228A11687001BF8F0 /* MultiplatformDemo */ = {
+		2AA44DC228A11687001BF8F0 /* iPhoneNumberFieldDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2AA44DD228A11688001BF8F0 /* Build configuration list for PBXNativeTarget "MultiplatformDemo" */;
+			buildConfigurationList = 2AA44DD228A11688001BF8F0 /* Build configuration list for PBXNativeTarget "iPhoneNumberFieldDemo" */;
 			buildPhases = (
 				2AA44DBF28A11687001BF8F0 /* Sources */,
 				2AA44DC028A11687001BF8F0 /* Frameworks */,
@@ -104,12 +104,12 @@
 			);
 			dependencies = (
 			);
-			name = MultiplatformDemo;
+			name = iPhoneNumberFieldDemo;
 			packageProductDependencies = (
 				2AA44DD828A116D8001BF8F0 /* iPhoneNumberField */,
 			);
 			productName = MultiplatformDemo;
-			productReference = 2AA44DC328A11687001BF8F0 /* MultiplatformDemo.app */;
+			productReference = 2AA44DC328A11687001BF8F0 /* iPhoneNumberFieldDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -127,7 +127,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2AA44DBE28A11687001BF8F0 /* Build configuration list for PBXProject "MultiplatformDemo" */;
+			buildConfigurationList = 2AA44DBE28A11687001BF8F0 /* Build configuration list for PBXProject "iPhoneNumberFieldDemo" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -140,7 +140,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2AA44DC228A11687001BF8F0 /* MultiplatformDemo */,
+				2AA44DC228A11687001BF8F0 /* iPhoneNumberFieldDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -300,12 +300,12 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.iphonetextfield.MultiplatformDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.iphonetextfield.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -336,12 +336,12 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.iphonetextfield.MultiplatformDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.iphonetextfield.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -354,7 +354,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2AA44DBE28A11687001BF8F0 /* Build configuration list for PBXProject "MultiplatformDemo" */ = {
+		2AA44DBE28A11687001BF8F0 /* Build configuration list for PBXProject "iPhoneNumberFieldDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2AA44DD028A11688001BF8F0 /* Debug */,
@@ -363,7 +363,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2AA44DD228A11688001BF8F0 /* Build configuration list for PBXNativeTarget "MultiplatformDemo" */ = {
+		2AA44DD228A11688001BF8F0 /* Build configuration list for PBXNativeTarget "iPhoneNumberFieldDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2AA44DD328A11688001BF8F0 /* Debug */,

@@ -7,7 +7,8 @@
     <strong><a href="#examples">Examples</a></strong> |
     <strong><a href="#customize">Customize</a></strong> |
     <strong><a href="#features">Features</a></strong> |
-    <strong><a href="#install">Install</a></strong> | 
+    <strong><a href="#install">Install</a></strong> |
+    <strong><a href="#pricing">Pricing</a></strong>
 </p>
 
 <p align="center">
@@ -77,7 +78,7 @@ struct ContentView: View {
 <br/>
 
 <h3 align="left">Focus and unfocus 🔍</h3>
-<p align="left">Use iPhoneNumberField's optional binding and <a href="https://github.com/benjaminsage/iTextField"> iTextField</a> to programmatically change text field.</p>
+<p align="left">Use iPhoneNumberField's optional binding and programmatically change the text field.</p>
 
 <img align="left" src="/Resources/example-2.gif" width="250">
 
@@ -93,10 +94,8 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            iTextField("Name", text: $nameText)
-                .font(UIFont(size: 24, weight: .light, design: .monospaced))
+            TextField("Name", text: $nameText)
                 .padding()
-                .onReturn { phoneEditing = true }
             iPhoneNumberField("Phone", text: $phoneText, isEditing: $phoneEditing)
                 .font(UIFont(size: 24, weight: .light, design: .monospaced))
                 .padding()
@@ -219,3 +218,18 @@ dependencies: [
     .package(url: "https://github.com/MojtabaHs/iPhoneNumberField.git", .upToNextMinor(from: "0.10.0"))
 ]
 ```
+
+# 🌟 Become a Paid Subscriber
+This library is under the **MIT** license and completely **FREE**. Anyone can use it anywhere, and any contribution is welcome.
+
+In addition, you can show your support and [become My sponsor](https://www.buymeacoffee.com/mojtabahs/membership).
+By supporting me, you will gain¹:
+- Tickets for code-level support in any project you want (not just this one)
+- Access me through my socials and we can discuss technologies together.
+- Discounts and early access to my premium products.
+- Early access to updates and bug fixes.
+- We can even discuss your project entirely and build it together 💪🏻.
+
+Remember that it is my pleasure to be a part of the community and try my best to deliver my experience to anyone who needs it.
+
+<sub>¹ Paid program options are related to the chosen level.</sub>
