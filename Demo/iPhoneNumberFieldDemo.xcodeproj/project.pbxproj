@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,18 @@
 		2AA44DCB28A11688001BF8F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA44DCA28A11688001BF8F0 /* Assets.xcassets */; };
 		2AA44DCF28A11688001BF8F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA44DCE28A11688001BF8F0 /* Preview Assets.xcassets */; };
 		2AA44DD928A116D8001BF8F0 /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = 2AA44DD828A116D8001BF8F0 /* iPhoneNumberField */; };
+		2AD9C8152D6F21E4008B6062 /* issue118.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD9C8142D6F21E4008B6062 /* issue118.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2AD9C8212D6F2321008B6062 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AA44DBB28A11687001BF8F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2AA44DC228A11687001BF8F0;
+			remoteInfo = iPhoneNumberFieldDemo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2AA44DC328A11687001BF8F0 /* iPhoneNumberFieldDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPhoneNumberFieldDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,7 +33,13 @@
 		2AA44DCC28A11688001BF8F0 /* MultiplatformDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiplatformDemo.entitlements; sourceTree = "<group>"; };
 		2AA44DCE28A11688001BF8F0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2AA44DD628A11699001BF8F0 /* iPhoneNumberField */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = iPhoneNumberField; path = ..; sourceTree = "<group>"; };
+		2AD9C8142D6F21E4008B6062 /* issue118.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = issue118.swift; sourceTree = "<group>"; };
+		2AD9C81B2D6F2321008B6062 /* iPhoneNumberFieldDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iPhoneNumberFieldDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2AD9C81C2D6F2321008B6062 /* iPhoneNumberFieldDemoUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = iPhoneNumberFieldDemoUITests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2AA44DC028A11687001BF8F0 /* Frameworks */ = {
@@ -30,6 +47,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AA44DD928A116D8001BF8F0 /* iPhoneNumberField in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AD9C8182D6F2321008B6062 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +65,7 @@
 			children = (
 				2AA44DD528A11699001BF8F0 /* Packages */,
 				2AA44DC528A11687001BF8F0 /* MultiplatformDemo */,
+				2AD9C81C2D6F2321008B6062 /* iPhoneNumberFieldDemoUITests */,
 				2AA44DC428A11687001BF8F0 /* Products */,
 				2AA44DD728A116D8001BF8F0 /* Frameworks */,
 			);
@@ -50,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				2AA44DC328A11687001BF8F0 /* iPhoneNumberFieldDemo.app */,
+				2AD9C81B2D6F2321008B6062 /* iPhoneNumberFieldDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,6 +85,7 @@
 			children = (
 				2AA44DC628A11687001BF8F0 /* MultiplatformDemoApp.swift */,
 				2AA44DC828A11687001BF8F0 /* ContentView.swift */,
+				2AD9C8162D6F222C008B6062 /* GitHubIssues */,
 				2AA44DCA28A11688001BF8F0 /* Assets.xcassets */,
 				2AA44DCC28A11688001BF8F0 /* MultiplatformDemo.entitlements */,
 				2AA44DCD28A11688001BF8F0 /* Preview Content */,
@@ -89,6 +116,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2AD9C8162D6F222C008B6062 /* GitHubIssues */ = {
+			isa = PBXGroup;
+			children = (
+				2AD9C8142D6F21E4008B6062 /* issue118.swift */,
+			);
+			path = GitHubIssues;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,6 +147,29 @@
 			productReference = 2AA44DC328A11687001BF8F0 /* iPhoneNumberFieldDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2AD9C81A2D6F2321008B6062 /* iPhoneNumberFieldDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AD9C8232D6F2321008B6062 /* Build configuration list for PBXNativeTarget "iPhoneNumberFieldDemoUITests" */;
+			buildPhases = (
+				2AD9C8172D6F2321008B6062 /* Sources */,
+				2AD9C8182D6F2321008B6062 /* Frameworks */,
+				2AD9C8192D6F2321008B6062 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2AD9C8222D6F2321008B6062 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2AD9C81C2D6F2321008B6062 /* iPhoneNumberFieldDemoUITests */,
+			);
+			name = iPhoneNumberFieldDemoUITests;
+			packageProductDependencies = (
+			);
+			productName = iPhoneNumberFieldDemoUITests;
+			productReference = 2AD9C81B2D6F2321008B6062 /* iPhoneNumberFieldDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -119,11 +177,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					2AA44DC228A11687001BF8F0 = {
 						CreatedOnToolsVersion = 14.0;
+					};
+					2AD9C81A2D6F2321008B6062 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 2AA44DC228A11687001BF8F0;
 					};
 				};
 			};
@@ -141,6 +203,7 @@
 			projectRoot = "";
 			targets = (
 				2AA44DC228A11687001BF8F0 /* iPhoneNumberFieldDemo */,
+				2AD9C81A2D6F2321008B6062 /* iPhoneNumberFieldDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -155,6 +218,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2AD9C8192D6F2321008B6062 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -164,10 +234,26 @@
 			files = (
 				2AA44DC928A11687001BF8F0 /* ContentView.swift in Sources */,
 				2AA44DC728A11687001BF8F0 /* MultiplatformDemoApp.swift in Sources */,
+				2AD9C8152D6F21E4008B6062 /* issue118.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AD9C8172D6F2321008B6062 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2AD9C8222D6F2321008B6062 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2AA44DC228A11687001BF8F0 /* iPhoneNumberFieldDemo */;
+			targetProxy = 2AD9C8212D6F2321008B6062 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2AA44DD028A11688001BF8F0 /* Debug */ = {
@@ -351,6 +437,52 @@
 			};
 			name = Release;
 		};
+		2AD9C8242D6F2321008B6062 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.iphonetextfield.demo.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iPhoneNumberFieldDemo;
+			};
+			name = Debug;
+		};
+		2AD9C8252D6F2321008B6062 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.iphonetextfield.demo.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iPhoneNumberFieldDemo;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -368,6 +500,15 @@
 			buildConfigurations = (
 				2AA44DD328A11688001BF8F0 /* Debug */,
 				2AA44DD428A11688001BF8F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2AD9C8232D6F2321008B6062 /* Build configuration list for PBXNativeTarget "iPhoneNumberFieldDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AD9C8242D6F2321008B6062 /* Debug */,
+				2AD9C8252D6F2321008B6062 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
