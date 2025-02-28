@@ -13,6 +13,7 @@
 		2AA44DCF28A11688001BF8F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA44DCE28A11688001BF8F0 /* Preview Assets.xcassets */; };
 		2AA44DD928A116D8001BF8F0 /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = 2AA44DD828A116D8001BF8F0 /* iPhoneNumberField */; };
 		2AD9C8152D6F21E4008B6062 /* issue118.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD9C8142D6F21E4008B6062 /* issue118.swift */; };
+		2AD9D0D72D719A21008B6062 /* issue119.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD9D0D62D719A21008B6062 /* issue119.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		2AA44DD628A11699001BF8F0 /* iPhoneNumberField */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = iPhoneNumberField; path = ..; sourceTree = "<group>"; };
 		2AD9C8142D6F21E4008B6062 /* issue118.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = issue118.swift; sourceTree = "<group>"; };
 		2AD9C81B2D6F2321008B6062 /* iPhoneNumberFieldDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iPhoneNumberFieldDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AD9D0D62D719A21008B6062 /* issue119.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = issue119.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				2AD9C8142D6F21E4008B6062 /* issue118.swift */,
+				2AD9D0D62D719A21008B6062 /* issue119.swift */,
 			);
 			path = GitHubIssues;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AA44DC928A11687001BF8F0 /* ContentView.swift in Sources */,
+				2AD9D0D72D719A21008B6062 /* issue119.swift in Sources */,
 				2AA44DC728A11687001BF8F0 /* MultiplatformDemoApp.swift in Sources */,
 				2AD9C8152D6F21E4008B6062 /* issue118.swift in Sources */,
 			);
